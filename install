@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/sh
 for folder in `ls -d */`
 do
     echo "stow $folder"
