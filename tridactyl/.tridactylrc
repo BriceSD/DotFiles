@@ -1,0 +1,50 @@
+sanitize tridactyllocal tridactylsync
+
+
+colours dark
+
+alias playAllVideos js tri.native.run("mpv --really-quiet --ontop --keepaspect-window --profile=protocol.http " + Array.from(document.querySelectorAll("a, iframe, video")).reduce((s, e) => {let r=(/^https?:\/\/((www.)?youtu((\.be\/)|(be\.com\/((embed\/)|(watch\?v=))))[^ ]+)|(.+\.webm)$/);let l="";if(e.tagName=="IFRAME")l=e.src.match(r);else if(e.tagName=="A")l=e.href.match(r)||e.innerText.match(r);else if(e.tagName=="VIDEO")l=[e.currentSrc?e.currentSrc:e.src];console.log(l);return s+(l && l.length > 0 && s.indexOf(l[0])<0?"'"+l[0]+"' ":"")},""))
+bind <A-v> playAllVideos
+
+set hintdelay 100
+set hintfiltermode vimperator-reflow
+set hintchars drtnaesi
+
+" make d take you to the left (I find it much less confusing)
+" bind d composite tabprev; tabclose #
+" bind D tabclose
+
+bind A tabnext_gt
+bind N tabprev
+
+bind n scrollline 5
+bind a scrollline -15
+
+bind E forward
+bind ? back
+
+" set hintfiltermode vimperator
+
+
+
+" Only hint search results on Google and DDG
+"bindurl www.google.com f hint -Jc .rc > div > a
+"bindurl www.google.com F hint -Jbc .rc > div > a
+
+"bindurl ^https://duckduckgo.com f hint -Jc [class=result__a]
+"bindurl ^https://duckduckgo.com F hint -Jbc [class=result__a]
+
+
+" Comment toggler for Reddit, Hacker News and Lobste.rs
+"bind ;c hint -Jc [class*="expand"],[class="togg"],[class="comment_folder"]
+
+
+" " GitHub pull request checkout command to clipboard (only works if you're a collaborator or above)
+" bind yp composite js document.getElementById("clone-help-step-1").textContent.replace("git checkout -b", "git checkout -B").replace("git pull ", "git fetch ") + "git reset --hard " + document.getElementById("clone-help-step-1").textContent.split(" ")[3].replace("-","/") | yank
+" 
+" " Git{Hub,Lab} git clone via SSH yank
+" bind yg composite js "git clone " + document.location.href.replace(/https?:\/\//,"git@").replace("/",":").replace(/$/,".git") | clipboard yank
+" 
+" " As above but execute it and open terminal in folder
+" bind ,g js let uri = document.location.href.replace(/https?:\/\//,"git@").replace("/",":").replace(/$/,".git"); tri.native.run("cd ~/projects; git clone " + uri + "; cd \"$(basename \"" + uri + "\" .git)\"; st")
+" 
