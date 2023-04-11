@@ -1,5 +1,8 @@
 require("neo-tree").setup({
-    vim.keymap.set("n", "<leader>nt", ":NeoTreeFocusToggle<CR>"),
+    vim.keymap.set("n", "<leader>nto", ":NeoTreeReveal<CR>"),
+    vim.keymap.set("n", "<leader>ntc", ":NeoTreeClose<CR>"),
+    vim.keymap.set("n", "<leader>ntf", ":NeoTreeFocus<CR>"),
+
     close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
     popup_border_style = "rounded",
     enable_git_status = true,

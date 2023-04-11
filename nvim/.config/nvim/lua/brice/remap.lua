@@ -12,14 +12,12 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
---vim.keymap.set("n", "<C-g>", "<C-^>")
-
-vim.keymap.set("n", "<leader>vwm", function()
-    require("vim-with-me").StartVimWithMe()
-end)
-vim.keymap.set("n", "<leader>svwm", function()
-    require("vim-with-me").StopVimWithMe()
-end)
+--vim.keymap.set("n", "<leader>vwm", function()
+--    require("vim-with-me").StartVimWithMe()
+--end)
+--vim.keymap.set("n", "<leader>svwm", function()
+--    require("vim-with-me").StopVimWithMe()
+--end)
 
 -- greatest remap ever
 vim.keymap.set("x", "<leader>p", [["_dP]])
@@ -44,7 +42,3 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.config/nvim/lua/brice/packer.lua<CR>");
 vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
-
---vim.keymap.set("n", "<leader><leader>", function()
---    vim.cmd("so")
---end)

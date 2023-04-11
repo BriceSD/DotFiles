@@ -11,7 +11,7 @@ end
 
 nmap('<leader>pf', builtin.find_files, 'Find Files')
 nmap('<C-p>', builtin.git_files)
-nmap("<leader>frr", builtin.lsp_references, '[F]ind [R]efe[r]ences')
+nmap("<leader>vrt", builtin.lsp_references, '[V]iew [R]eferences [T]elescope')
 nmap('<leader>vds', builtin.lsp_document_symbols, '[D]ocument [S]ymbols')
 nmap('<leader>vws', builtin.lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
 vim.keymap.set('n', '<leader>?', builtin.oldfiles, { desc = '[?] Find recently opened files' })
@@ -34,9 +34,9 @@ local whichkey = require 'which-key'
 whichkey.register {
     ['<Leader>'] = {
         v = {
-            name = 'View/Variable',
+            name = 'View',
             r = {
-                r = { 'References' },
+                name = 'References',
             },
             d = {
                 name = 'Document',
