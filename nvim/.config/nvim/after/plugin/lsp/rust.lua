@@ -11,10 +11,11 @@ vim.keymap.set('n', '<leader>j', ':RustMoveItemDown<CR>')
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
-local extension_path = vim.env.HOME .. '.local/share/nvim/mason/packages/codelldb/extension/'
+-- Debugger path
+--local extension_path = '/usr/lib/codelldb/'
+local extension_path = vim.fn.glob(vim.fn.stdpath("data") .. "/mason/packages/codelldb/extension/") or ""
 local codelldb_path = extension_path .. 'adapter/codelldb'
-local liblldb_path = extension_path .. 'lldb/lib/libcodelldb.dylib'
--- /Users/MateoPanadero/.local/share/nvim/mason/packages/codelldb/extension/lldb/lib/liblldb.dylib
+local liblldb_path = extension_path .. 'lldb/lib/liblldb.so'
 
 local opts = {
     tools = {
@@ -182,6 +183,7 @@ local opts = {
     }, -- rust-analyer options
     -- debugging stuff
     dap = {
+        -- TODO: make it work
         adapter = require('rust-tools.dap').get_codelldb_adapter(codelldb_path, liblldb_path),
         -- adapter = {
         --   type = 'executable',
@@ -190,5 +192,6 @@ local opts = {
         -- },
     },
 }
+
 
 require('rust-tools').setup(opts)

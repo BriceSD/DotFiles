@@ -1,25 +1,16 @@
---TrySource 'lsp.omnisharp'
---TrySource 'lsp.typescript'
---TrySource 'lsp.viml'
-
 local lsp = require("lsp-zero")
-lsp.preset("recommended")
+--lsp.preset("recommended")
+lsp.preset({
+    name = 'recommended',
+    set_lsp_keymaps = false,
+    suggest_lsp_servers = false,
+    sign_icons = false
+})
 lsp.ensure_installed({
     'tsserver',
     'rust_analyzer',
     'eslint',
-    'sumneko_lua',
-})
-
--- Fix Undefined global 'vim'
-lsp.configure('lua-language-server', {
-    settings = {
-        Lua = {
-            diagnostics = {
-                globals = { 'vim' }
-            }
-        }
-    }
+    --    'sumneko_lua',
 })
 
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
@@ -37,7 +28,6 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 })
 
 local luasnip = require 'luasnip'
-
 cmp.setup {
     snippet = {
         expand = function(args)

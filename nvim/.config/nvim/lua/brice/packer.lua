@@ -88,6 +88,11 @@ return require('packer').startup(function(use)
 
 
 
+
+    -- plugins development LSP
+    use "folke/neodev.nvim"
+
+
     -- LSP
     use {
         'VonHeikemen/lsp-zero.nvim',
@@ -119,7 +124,6 @@ return require('packer').startup(function(use)
 
 
 
-
     -- Snippet
     use({
         "L3MON4D3/LuaSnip",
@@ -129,37 +133,10 @@ return require('packer').startup(function(use)
         run = "make install_jsregexp"
     })
 
-    -- nvim-cmp setup
-    local cmp = require 'cmp'
-    local luasnip = require 'luasnip'
-
-    cmp.setup {
-        snippet = {
-            expand = function(args)
-                luasnip.lsp_expand(args.body)
-            end,
-        },
-        mapping = cmp.mapping.preset.insert {
-            ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-            ['<C-f>'] = cmp.mapping.scroll_docs(4),
-            ['<C-Space>'] = cmp.mapping.complete(),
-            ['<CR>'] = cmp.mapping.confirm {
-                behavior = cmp.ConfirmBehavior.Replace,
-                select = true,
-            },
-        },
-        sources = {
-            { name = 'nvim_lsp' },
-            { name = 'luasnip' },
-        },
-    }
-
-
 
     -- Rust related plugins
     use {
         'simrat39/rust-tools.nvim', -- annotates Rust file with return types etc
-        'mfussenegger/nvim-dap',    -- Debugging
         requires = {
             { 'neovim/nvim-lspconfig' },
             { "nvim-lua/plenary.nvim" },
@@ -167,7 +144,19 @@ return require('packer').startup(function(use)
     }
 
 
-
+    -- Debugging
+    use {
+        "mfussenegger/nvim-dap",
+        requires = {
+            { 'nvim-treesitter/nvim-treesitter' }, -- needed
+            { "rcarriga/nvim-dap-ui" },            -- better ui
+            { "theHamsta/nvim-dap-virtual-text" }, -- annotates file with debug info
+            { 'nvim-telescope/telescope-dap.nvim' },
+            { 'nvim-telescope/telescope.nvim' },   -- needed for telescope-dap
+            { "jay-babu/mason-nvim-dap.nvim" },    -- ensure dap are installed through mason
+            { 'mortepau/codicons.nvim' },          -- Debugger icons (font)
+        }
+    }
 
 
     use { -- help to tell next available keys
