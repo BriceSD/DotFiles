@@ -2,6 +2,8 @@ vim.keymap.set('n', '<F5>', function() require('dap').step_into() end)
 vim.keymap.set('n', '<F4>', function() require('dap').step_over() end)
 vim.keymap.set('n', '<F3>', function() require('dap').continue() end)
 vim.keymap.set('n', '<F2>', function() require('dap').step_out() end)
+vim.keymap.set('n', '<F10>', function() require('dap').terminate() end)
+vim.keymap.set('n', '<F8>', function() require('dap').run_last() end)
 vim.keymap.set('n', '<Leader>b', function() require('dap').toggle_breakpoint() end)
 vim.keymap.set('n', '<Leader>B',
     function() require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: ')) end)
@@ -55,6 +57,8 @@ dap.configurations.rust = {
         stopOnEntry = false,
     },
 }
+dap.configurations.cpp = dap.configurations.rust
+dap.configurations.c = dap.configurations.rust
 
 dap.listeners.after.event_initialized["dapui_config"] = function()
     dapui.open()
@@ -93,4 +97,78 @@ require("nvim-dap-virtual-text").setup {
     -- e.g. 80 to position at column 80, see `:h nvim_buf_set_extmark()`
 }
 
-dapui.setup()
+dapui.setup({
+    controls = {
+        element = "repl",
+        enabled = true,
+        icons = {
+            disconnect = "",
+            pause = "",
+            play = "",
+            run_last = "",
+            step_back = "",
+            step_into = "",
+            step_out = "",
+            step_over = "",
+            terminate = ""
+        }
+    },
+    element_mappings = {},
+    expand_lines = true,
+    floating = {
+        border = "single",
+        mappings = {
+            close = { "q", "<Esc>" }
+        }
+    },
+    force_buffers = true,
+    icons = {
+        collapsed = "",
+        current_frame = "",
+        expanded = ""
+    },
+    layouts = { {
+        elements = { {
+            id = "scopes",
+            size = 0.25
+        }, {
+            id = "breakpoints",
+            size = 0.25
+        }, {
+            id = "stacks",
+            size = 0.25
+        }, {
+            id = "watches",
+            size = 0.25
+        } },
+        position = "left",
+        size = 80
+    }, {
+        elements = { {
+            id = "console",
+            size = 0.3
+        }, {
+            id = "repl",
+            size = 0.7
+        } },
+        position = "bottom",
+        size = 13
+    } },
+    mappings = {
+        edit = "e",
+        expand = { "<CR>", "<2-LeftMouse>" },
+        open = "o",
+        remove = "d",
+        repl = "r",
+        toggle = "t"
+    },
+    render = {
+        indent = 1,
+        max_value_lines = 100
+    }
+})
+
+
+
+
+
