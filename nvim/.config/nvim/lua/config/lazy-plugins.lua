@@ -1,18 +1,3 @@
--- This file can be loaded by calling `lua require('plugins')` from your init.vim
--- lsp.on
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-    vim.fn.system({
-        "git",
-        "clone",
-        "--filter=blob:none",
-        "https://github.com/folke/lazy.nvim.git",
-        "--branch=stable", -- latest stable release
-        lazypath,
-    })
-end
-vim.opt.rtp:prepend(lazypath)
-
 local plugins = {
     -- fuzzy finder and more
     {
@@ -129,6 +114,7 @@ local plugins = {
     },
 
 
+    -- Shows lsp status
     'nvim-lua/lsp-status.nvim',
 
     -- Rust related plugins
@@ -170,21 +156,4 @@ local plugins = {
         end
     },
 }
-
-local opts = {}
-require("lazy").setup(plugins, opts)
-
--- Enable Comment.nvim
-require('Comment').setup()
-
--- Gitsigns
--- See `:help gitsigns.txt`
-require('gitsigns').setup {
-    signs = {
-        add = { text = '+' },
-        change = { text = '~' },
-        delete = { text = '_' },
-        topdelete = { text = '‾' },
-        changedelete = { text = '~' },
-    },
-}
+return plugins
