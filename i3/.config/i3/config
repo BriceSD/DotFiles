@@ -18,8 +18,7 @@ set $dmenu "dmenu -b -f -i -l 10 -fn '-*-Verdana-*-*-*-*-25-*-*-*-*-*-*-*'"
 set $fonttype "pango:i3barsymbols 8"
 font $fonttype
 
-# GET DEM BORDERS OUT OF HEREc:w
-#
+# GET DEM BORDERS OUT OF HERE
 # Thanks Childz
 for_window [class="^.*"] border pixel 2
                           # class                 border  backgr. text    indicator child_border
