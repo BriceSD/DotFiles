@@ -59,6 +59,7 @@ cmp_mappings['<C-u>'] = nil
 cmp_mappings['<C-x>'] = nil
 
 cmp_mappings['<F4>'] = nil
+
 lsp.setup_nvim_cmp({
     mapping = cmp_mappings
 })
@@ -123,6 +124,9 @@ end)
 vim.diagnostic.config({
     virtual_text = true
 })
+
+-- (Optional) Configure lua language server for neovim
+require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
 
 
 local whichkey = require 'which-key'
