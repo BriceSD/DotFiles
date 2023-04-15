@@ -51,7 +51,10 @@ dap.configurations.rust = {
         request = "launch",
         program = function()
             vim.fn.jobstart('cargo build')
-            return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+            local workspaceRoot = require("lspconfig").rust_analyzer.get_root_dir()
+            local workspaceName = vim.fn.fnamemodify(workspaceRoot, ":t")
+
+            return vim.fn.input("Path to executable: ", workspaceRoot .. "/target/debug/" .. workspaceName, "file")
         end,
         cwd = '${workspaceFolder}',
         stopOnEntry = false,
@@ -167,8 +170,3 @@ dapui.setup({
         max_value_lines = 100
     }
 })
-
-
-
-
-
