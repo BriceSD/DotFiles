@@ -24,7 +24,7 @@ local plugins = {
     'nvim-treesitter/nvim-treesitter-context',
 
 
-    -- Navigation
+    -- Navigation between files
     'ThePrimeagen/harpoon', -- easy switch between 4 files by marking them
 
     -- Undo tree history
@@ -38,6 +38,15 @@ local plugins = {
             'nvim-lua/plenary.nvim',
             'nvim-tree/nvim-web-devicons', -- not strictly required, but recommended
             'MunifTanjim/nui.nvim',
+        },
+    },
+
+    -- FAST Navigation. Forget horizontal native navigation
+    {
+        'ggandor/leap.nvim',
+        'ggandor/leap-spooky.nvim',
+        dependencies = {
+            'tpope/vim-repeat',
         },
     },
 
