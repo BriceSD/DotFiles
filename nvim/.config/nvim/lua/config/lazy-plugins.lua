@@ -11,16 +11,9 @@ local plugins = {
     },
 
     -- theme
-    {
-        'rose-pine/neovim',
-        name = 'rose-pine',
-        config = function()
-            require('rose-pine').setup()
-            vim.cmd('colorscheme rose-pine')
-        end
-    },
-
+    'rebelot/kanagawa.nvim',
     'nvim-lualine/lualine.nvim', -- Fancier statusline
+
     'numToStr/Comment.nvim',     -- 'gc' to comment visual regions/lines
     'lewis6991/gitsigns.nvim',
 

@@ -70,7 +70,8 @@ bindsym $mod+y exec --no-startup-id firefox
 
 ## launch urxvt (terminal)
 #bindsym $mod+Return exec urxvt
-bindsym $mod+Return exec terminology
+bindsym $mod+Return exec kitty
+#bindsym $mod+Return exec terminology
 
 # Navigation
 ## Use Mouse+$mod to drag floating windows to their wanted position
@@ -273,6 +274,7 @@ exec --no-startup-id i3-msg 'workspace $WS6; exec discord'
 #exec --no-startup-id i3-msg 'workspace $WS10; exec /bin/JDownloader'
 
 ## Terminal
-#exec --no-startup-id i3-msg 'workspace $WS3; exec urxvt'
-exec --no-startup-id i3-msg 'workspace $WS3; exec terminology'
+##exec --no-startup-id i3-msg 'workspace $WS3; exec urxvt'
+exec --no-startup-id i3-msg 'workspace $WS3; exec kitty'
+#exec --no-startup-id i3-msg 'workspace $WS3; exec terminology'
 

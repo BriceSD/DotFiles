@@ -12,6 +12,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+require("config")
 local plugins_list = require("config.lazy-plugins")
 local conf = require("config.lazy-conf")
 
