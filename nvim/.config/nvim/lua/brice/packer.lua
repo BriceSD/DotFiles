@@ -93,6 +93,24 @@ return require('packer').startup(function(use)
     use "folke/neodev.nvim"
 
 
+    -- snipets
+    use({
+        "hrsh7th/nvim-cmp",
+        -- follow latest release.
+        tag = "v<CurrentMajor>.*",
+        -- install jsregexp (optional!:).
+        --run = "make install_jsregexp",
+        config = [[require('config.nvim-cmp')]],
+        requires = {
+            "saadparwaiz1/cmp_luasnip",
+            "hrsh7th/cmp-nvim-lua",
+            "hrsh7th/cmp-nvim-lsp",
+            "hrsh7th/cmp-path",
+            "hrsh7th/cmp-buffer",
+            "hrsh7th/cmp-omni",
+        },
+    })
+
     -- LSP
     use {
         'VonHeikemen/lsp-zero.nvim',
@@ -121,18 +139,6 @@ return require('packer').startup(function(use)
         }
     }
     use 'nvim-lua/lsp-status.nvim'
-
-
-
-    -- Snippet
-    use({
-        "L3MON4D3/LuaSnip",
-        -- follow latest release.
-        tag = "v<CurrentMajor>.*",
-        -- install jsregexp (optional!:).
-        run = "make install_jsregexp"
-    })
-
 
     -- Rust related plugins
     use {

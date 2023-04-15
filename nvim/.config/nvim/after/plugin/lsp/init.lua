@@ -22,13 +22,8 @@ capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 -- nvim-cmp setup
 local cmp = require('cmp')
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
-local cmp_mappings = lsp.defaults.cmp_mappings({
-    ['<Enter>'] = cmp.mapping.confirm({ select = true }),
-    ['<C-Space>'] = cmp.mapping.complete(),
-})
-
 local luasnip = require 'luasnip'
-cmp.setup {
+cmp.setup({
     snippet = {
         expand = function(args)
             luasnip.lsp_expand(args.body)
@@ -43,17 +38,27 @@ cmp.setup {
             select = true,
         },
     },
-    sources = {
-        { name = 'nvim_lsp' },
+    sources = cmp.config.sources({
         { name = 'luasnip' },
-    },
-}
+        { name = 'nvim_lsp' },
+    }, {
+        { name = 'buffer' },
+    })
+})
 
 
+local cmp_mappings = lsp.defaults.cmp_mappings({
+    ['<Enter>'] = cmp.mapping.confirm({ select = true }),
+    ['<C-Space>'] = cmp.mapping.complete(),
+})
 
 cmp_mappings['<Tab>'] = nil
 cmp_mappings['<S-Tab>'] = nil
 
+cmp_mappings['<C-u>'] = nil
+cmp_mappings['<C-x>'] = nil
+
+cmp_mappings['<F4>'] = nil
 lsp.setup_nvim_cmp({
     mapping = cmp_mappings
 })
