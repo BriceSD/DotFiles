@@ -15,7 +15,6 @@ local plugins = {
     'nvim-lualine/lualine.nvim', -- Fancier statusline
 
     'numToStr/Comment.nvim',     -- 'gc' to comment visual regions/lines
-    'lewis6991/gitsigns.nvim',
 
 
     -- Tree Sitter
@@ -51,9 +50,18 @@ local plugins = {
     },
 
     -- Git
-    'tpope/vim-fugitive',             -- git integration/wrapper
-    'ThePrimeagen/git-worktree.nvim', -- git worktree wrapper
+    {
+        'tpope/vim-fugitive',         -- git integration/wrapper
+        'lewis6991/gitsigns.nvim',    -- git signs left of lines
+        'ThePrimeagen/git-worktree.nvim', -- git worktree wrapper
+        'sindrets/diffview.nvim',     -- git diff UI
+        dependencies = {
+            'nvim-lua/plenary.nvim',
+        }
+    },
 
+    -- Highlighting other uses of the word under the cursor using either LSP, Tree-sitter, or regex
+    'RRethy/vim-illuminate',
 
 
     -- Refactoring

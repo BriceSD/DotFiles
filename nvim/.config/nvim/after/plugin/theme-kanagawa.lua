@@ -14,9 +14,9 @@ require('kanagawa').setup({
         palette = {},
         theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
     },
-    overrides = function(colors) -- add/modify highlights
-        return {}
-    end,
+    -- overrides = function(colors) -- add/modify highlights
+    --     return {}
+    -- end,
     theme = "wave", -- Load "wave" theme when 'background' option is not set
     background = {
         -- map the value of 'background' option to a theme
@@ -27,3 +27,7 @@ require('kanagawa').setup({
 
 -- setup must be called before loading
 vim.cmd("colorscheme kanagawa")
+vim.cmd('hi IlluminatedWordText guibg=NONE guifg=NONE gui=NONE')
+--vim.cmd('hi IlluminatedWordText guibg=#49443C    guifg=NONE gui=NONE')
+vim.cmd('hi IlluminatedWordRead guibg=#2c3732 guifg=NONE gui=NONE')
+vim.cmd('hi IlluminatedWordWrite guibg=#3e2f32 guifg=NONE gui=NONE')
