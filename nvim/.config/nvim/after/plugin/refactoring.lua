@@ -10,3 +10,31 @@ vim.api.nvim_set_keymap("n", "<leader>rbf", [[ <Cmd>lua require('refactoring').r
 
 ------ Inline variable can also pick up the identifier currently under the cursor without visual mode 
 vim.api.nvim_set_keymap("n", "<leader>ri", [[ <Cmd>lua require('refactoring').refactor('Inline Variable')<CR>]], {noremap = true, silent = true, expr = false})
+
+
+require('refactoring').setup({
+    -- prompt for return type
+    prompt_func_return_type = {
+        go = true,
+        cpp = true,
+        c = true,
+        java = true,
+    },
+    -- prompt for function parameters
+    prompt_func_param_type = {
+        go = true,
+        cpp = true,
+        c = true,
+        java = true,
+    },
+})
+-- load refactoring Telescope extension
+require("telescope").load_extension("refactoring")
+
+-- remap to open the Telescope refactoring menu in visual mode
+vim.api.nvim_set_keymap(
+	"v",
+	"<leader>rt",
+	"<Esc><cmd>lua require('telescope').extensions.refactoring.refactors()<CR>",
+	{ noremap = true }
+)
