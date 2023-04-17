@@ -6,7 +6,8 @@ local plugins = {
         -- or
         version = '0.1.x',
         dependencies = {
-            { 'nvim-lua/plenary.nvim' },
+            'nvim-lua/plenary.nvim',
+            "debugloop/telescope-undo.nvim",
         },
     },
 
@@ -14,7 +15,9 @@ local plugins = {
     'rebelot/kanagawa.nvim',
     'nvim-lualine/lualine.nvim', -- Fancier statusline
 
-    'numToStr/Comment.nvim',     -- 'gc' to comment visual regions/lines
+    -- better edit experience
+    'numToStr/Comment.nvim', -- 'gc' to comment visual regions/lines
+    'windwp/nvim-autopairs', --
 
 
     -- Tree Sitter
