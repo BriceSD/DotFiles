@@ -54,3 +54,8 @@ vim.keymap.set("n", "<M-x>", "<C-w>>")
 vim.keymap.set("n", "<M-u>", "<C-w><")
 vim.keymap.set("n", "<M-f>", "<C-w>+")
 vim.keymap.set("n", "<M-o>", "<C-w>-")
+
+-- Kitty dosn't let you use C-^ or C-; or ...
+-- https://github.com/kovidgoyal/kitty/issues/1629#issuecomment-494299618
+--vim.keymap.set("n", "<C-g>", "<C-^>")
+--vim.keymap.set("n", "<M-g>", "<C-g>")
