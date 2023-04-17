@@ -18,9 +18,14 @@ local plugins = {
 
 
     -- Tree Sitter
-    'nvim-treesitter/nvim-treesitter',
-    'nvim-treesitter/playground', -- view AST of current file
-    'nvim-treesitter/nvim-treesitter-context',
+    {
+        "nvim-treesitter/nvim-treesitter-textobjects", -- yank, delete etc around/in function and more
+        dependencies = {
+            'nvim-treesitter/nvim-treesitter',
+            'nvim-treesitter/playground', -- view AST of current file
+            'nvim-treesitter/nvim-treesitter-context',
+        }
+    },
 
 
     -- Navigation between files
@@ -51,10 +56,10 @@ local plugins = {
 
     -- Git
     {
-        'tpope/vim-fugitive',         -- git integration/wrapper
-        'lewis6991/gitsigns.nvim',    -- git signs left of lines
+        'tpope/vim-fugitive',             -- git integration/wrapper
+        'lewis6991/gitsigns.nvim',        -- git signs left of lines
         'ThePrimeagen/git-worktree.nvim', -- git worktree wrapper
-        'sindrets/diffview.nvim',     -- git diff UI
+        'sindrets/diffview.nvim',         -- git diff UI
         dependencies = {
             'nvim-lua/plenary.nvim',
         }
