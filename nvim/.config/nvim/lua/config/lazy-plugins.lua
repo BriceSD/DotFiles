@@ -60,6 +60,7 @@ local plugins = {
         'lewis6991/gitsigns.nvim',        -- git signs left of lines
         'ThePrimeagen/git-worktree.nvim', -- git worktree wrapper
         'sindrets/diffview.nvim',         -- git diff UI
+        'junegunn/gv.vim',
         dependencies = {
             'nvim-lua/plenary.nvim',
         }
