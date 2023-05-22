@@ -38,14 +38,26 @@ local plugins = {
     'mbbill/undotree',
 
     -- Browse filesystem in a tree
+    -- {
+    --     'nvim-neo-tree/neo-tree.nvim',
+    --     branch = 'v2.x',
+    --     dependencies = {
+    --         'nvim-lua/plenary.nvim',
+    --         'nvim-tree/nvim-web-devicons', -- not strictly required, but recommended
+    --         'MunifTanjim/nui.nvim',
+    --     },
+    -- },
+
+    -- Browse filesystem with ranger
     {
-        'nvim-neo-tree/neo-tree.nvim',
-        branch = 'v2.x',
-        dependencies = {
-            'nvim-lua/plenary.nvim',
-            'nvim-tree/nvim-web-devicons', -- not strictly required, but recommended
-            'MunifTanjim/nui.nvim',
-        },
+        'kevinhwang91/rnvimr',
+        -- # ArchLinux install all requirements is extremely convenient
+        -- paru ranger python-pynvim ueberzug
+        -- # ~ `ueberzug` can be replaced with `ueberzugpp` ~
+        --
+        -- # pip
+        -- # Ueberzug/Ueberzugpp is not supported in macOS because it depends on X11
+        -- pip3 install ueberzug
     },
 
     -- FAST Navigation. Forget horizontal native navigation
