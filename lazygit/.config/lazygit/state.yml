@@ -1,0 +1,10 @@
+lastupdatecheck: 0
+recentrepos:
+- /home/brice/dotfiles/dev
+- /home/brice/projects/zero2prod
+- /home/brice/projects/cli-rust/catr
+- /home/brice/projects/Kaleidoscope
+startuppopupversion: 5
+customcommandshistory:
+- git config pull.rebase true
+hidecommandlog: false
