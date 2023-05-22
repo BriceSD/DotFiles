@@ -19,6 +19,9 @@ local plugins = {
     'numToStr/Comment.nvim', -- 'gc' to comment visual regions/lines
     'm4xshen/autoclose.nvim', -- manage auto pairs & closes brackets
 
+    -- make one window fullscreen
+    'troydm/zoomwintab.vim',
+
     -- Markdown preview
     { "ellisonleao/glow.nvim", config = true, cmd = "Glow" },
     {
