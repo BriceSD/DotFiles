@@ -198,6 +198,12 @@ local plugins = {
     -- Shows lsp status
     'nvim-lua/lsp-status.nvim',
 
+    -- Navigate through lsp diagnostics
+    {
+        "folke/trouble.nvim",
+        dependencies = "nvim-tree/nvim-web-devicons",
+    },
+
     -- Rust related plugins
     {
         'simrat39/rust-tools.nvim', -- annotates Rust file with return types etc
