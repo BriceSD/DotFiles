@@ -11,7 +11,11 @@ PERSONAL=$XDG_CONFIG_HOME/personal
 
 export GIT_EDITOR=$VIM
 export DOTFILES=$HOME/dotfiles
+export KALEIDOSCOPE_DIR=$HOME/projects/Kaleidoscope
 
+export EDITOR=$VIM
+export VISUAL_EDITOR=$VIM
+export PAGER=nvimpager
 # export LANG="en_US.UTF-8"
 # export LC_CTYPE="en_US.UTF-8"
 # export LC_NUMERIC="en_US.UTF-8"
@@ -27,6 +31,9 @@ export DOTFILES=$HOME/dotfiles
 # export LC_IDENTIFICATION="en_US.UTF-8"
 # export LC_ALL="en_US.UTF-8"
 path+=($HOME/.local/bin/)
+path+=($HOME/.cargo/bin/)
+fpath+=~/.zfunc
+fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 #addToPathFront $HOME/.local/.npm-global/bin
 #addToPathFront $HOME/.local/bin
 export PATH
@@ -62,6 +69,18 @@ eslintify() {
 }
 
 
+man() {
+    LESS_TERMCAP_md=$'\e[01;31m' \
+    LESS_TERMCAP_me=$'\e[0m' \
+    LESS_TERMCAP_se=$'\e[0m' \
+    LESS_TERMCAP_so=$'\e[01;44;33m' \
+    LESS_TERMCAP_ue=$'\e[0m' \
+    LESS_TERMCAP_us=$'\e[01;32m' \
+    command man "$@"
+}
+
 alias v="nvim"
+alias mydocker='docker build -t mydocker . && docker run --cap-add="SYS_ADMIN" mydocker'
+
 # If running from tty1 start sway
 [ "$(tty)" = "/dev/tty1" ] && exec sway
