@@ -1,6 +1,5 @@
 sanitize tridactyllocal tridactylsync
 
-
 colours dark
 
 alias playAllVideos js tri.native.run("mpv --really-quiet --ontop --keepaspect-window --profile=protocol.http " + Array.from(document.querySelectorAll("a, iframe, video")).reduce((s, e) => {let r=(/^https?:\/\/((www.)?youtu((\.be\/)|(be\.com\/((embed\/)|(watch\?v=))))[^ ]+)|(.+\.webm)$/);let l="";if(e.tagName=="IFRAME")l=e.src.match(r);else if(e.tagName=="A")l=e.href.match(r)||e.innerText.match(r);else if(e.tagName=="VIDEO")l=[e.currentSrc?e.currentSrc:e.src];console.log(l);return s+(l && l.length > 0 && s.indexOf(l[0])<0?"'"+l[0]+"' ":"")},""))
@@ -8,24 +7,30 @@ bind <A-v> playAllVideos
 
 set hintdelay 100
 set hintfiltermode vimperator-reflow
-set hintchars drtnaesi
+set hintchars shtareniwfdoluqm
 
 " make d take you to the left (I find it much less confusing)
-" bind d composite tabprev; tabclose #
-" bind D tabclose
+bind d composite tabprev; tabclose #
+bind D tabclose
 
 bind A tabnext_gt
-bind N tabprev
+bind H tabprev
 
 bind n scrollline 5
-bind a scrollline -15
+bind a scrollline -5
 
-bind E forward
-bind ? back
+bind <C-e> forward
+bind <C-p> back
 
 " set hintfiltermode vimperator
 
 
+" ** Youtube
+" https://github.com/glacambre/.dotfiles/blob/master/default/.config/tridactyl/tridactylrc
+" disable hints for invisible elements (no js hinting)
+bindurl youtu((\.be)|(be\.com)) f hint -J
+bindurl youtu((\.be)|(be\.com)) F hint -b -J
+bindurl youtu((\.be)|(be\.com)) tf hint -t -J
 
 " Only hint search results on Google and DDG
 "bindurl www.google.com f hint -Jc .rc > div > a
@@ -47,4 +52,3 @@ bind ? back
 " 
 " " As above but execute it and open terminal in folder
 " bind ,g js let uri = document.location.href.replace(/https?:\/\//,"git@").replace("/",":").replace(/$/,".git"); tri.native.run("cd ~/projects; git clone " + uri + "; cd \"$(basename \"" + uri + "\" .git)\"; st")
-" 
