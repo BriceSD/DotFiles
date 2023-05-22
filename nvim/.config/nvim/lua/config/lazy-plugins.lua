@@ -93,6 +93,31 @@ local plugins = {
             'nvim-lua/plenary.nvim',
         }
     },
+    {
+        "nvim-telescope/telescope.nvim",
+        dependencies = {
+            "nvim-lua/plenary.nvim", "kdheepak/lazygit.nvim",
+        },
+        config = function()
+            require("telescope").load_extension("lazygit")
+        end,
+    },
+    {
+        "aaronhallaert/advanced-git-search.nvim",
+        config = function()
+            require("telescope").load_extension("advanced_git_search")
+        end,
+        dependencies = {
+            "nvim-telescope/telescope.nvim",
+            -- to show diff splits and open commits in browser
+            "tpope/vim-fugitive",
+            -- to open commits in browser with fugitive
+            "tpope/vim-rhubarb",
+            -- OPTIONAL: to replace the diff from fugitive with diffview.nvim
+            -- (fugitive is still needed to open in browser)
+            "sindrets/diffview.nvim",
+        },
+    },
 
     -- Highlighting other uses of the word under the cursor using either LSP, Tree-sitter, or regex
     'RRethy/vim-illuminate',

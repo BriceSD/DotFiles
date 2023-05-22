@@ -26,6 +26,22 @@ require("telescope").setup({
                 },
             },
         },
+        advanced_git_search = {
+            -- fugitive or diffview
+            diff_plugin = "diffview",
+            -- customize git in previewer
+            -- e.g. flags such as { "--no-pager" }, or { "-c", "delta.side-by-side=false" }
+            git_flags = {},
+            -- customize git diff in previewer
+            -- e.g. flags such as { "--raw" }
+            git_diff_flags = {},
+            -- Show builtin git pickers when executing "show_custom_functions" or :AdvancedGitSearch
+            show_builtin_git_pickers = false,
+        },
+        lazygit = {
+            floating_window_winblend = 0,                   -- transparency of floating window
+            floating_window_scaling_factor = 1,             -- scaling factor for floating window
+        },
     },
 })
 require("telescope").load_extension("undo")
