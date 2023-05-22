@@ -144,6 +144,13 @@ local plugins = {
             { 'nvim-lua/plenary.nvim' },
         },
     },
+    {
+        'saecki/crates.nvim', -- crates management
+        dependencies = { 'nvim-lua/plenary.nvim' },
+        config = function()
+            require('crates').setup()
+        end,
+    },
 
 
     -- Debugging
