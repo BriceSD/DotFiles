@@ -48,12 +48,12 @@ require('illuminate').configure({
 
 local il = require('illuminate')
 
-vim.keymap.set('n', '<a-p>', function()
+vim.keymap.set('n', '<a-n>', function()
     il.goto_next_reference()
     vim.cmd('normal zz')
 end, { desc = "Move to next reference" })
 
-vim.keymap.set("n", '<a-s-p>', function()
+vim.keymap.set("n", '<a-s-n>', function()
     il.goto_prev_reference()
     vim.cmd('normal zz')
 end, { desc = "Move to previous reference" })

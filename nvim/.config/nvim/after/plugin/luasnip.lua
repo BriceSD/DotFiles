@@ -30,7 +30,7 @@ vim.keymap.set({ "i", "s" }, "<C-u>", function()
 end, { silent = true })
 
 
-vim.keymap.set({ "i", "s" }, "<C-x>", function()
+vim.keymap.set({ "i", "s" }, "<C-z>", function()
     if ls.jumpable(-1) then
         ls.jump(-1)
     end
