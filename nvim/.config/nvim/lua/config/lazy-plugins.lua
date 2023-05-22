@@ -17,7 +17,7 @@ local plugins = {
 
     -- better edit experience
     'numToStr/Comment.nvim', -- 'gc' to comment visual regions/lines
-    'windwp/nvim-autopairs', --
+    'm4xshen/autoclose.nvim', -- manage auto pairs & closes brackets
 
 
     -- Tree Sitter
