@@ -16,7 +16,7 @@ local plugins = {
     'nvim-lualine/lualine.nvim', -- Fancier statusline
 
     -- better edit experience
-    'numToStr/Comment.nvim', -- 'gc' to comment visual regions/lines
+    'numToStr/Comment.nvim',  -- 'gc' to comment visual regions/lines
     'm4xshen/autoclose.nvim', -- manage auto pairs & closes brackets
 
     -- make one window fullscreen
@@ -155,7 +155,7 @@ local plugins = {
         -- follow latest release.
         --version = 'v<CurrentMajor>.*',
         -- install jsregexp (optional!:).
-        build = 'make install_jsregexp',
+        --build = 'make install_jsregexp',
         config = [[require('config.nvim-cmp')]],
         dependencies = {
             'saadparwaiz1/cmp_luasnip',
