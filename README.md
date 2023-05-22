@@ -2,8 +2,10 @@
 ## Required for installation
 
 * Shell
-* Stow
+* Stow : sudo pacman -U https://archive.archlinux.org/packages/s/stow/stow-2.2.2-5-any.pkg.tar.xz
 * Lua Hererocks for nvim plugin luasnip ?
+* Ranger
+* LazyGit
 
 ## Config for
 
@@ -15,11 +17,13 @@
 * i3
 * Tridactyl (firefox extention)
 * Feh
+* Zathura
+* Kitty
  
 ## Post install configuration
 ### Nvim 
- * :MasonInstall
- * :PackerSync
+* :MasonInstall
+* :Lazy
 
 ### Tridactyl
 * See :help ????
