@@ -8,3 +8,4 @@ startuppopupversion: 5
 customcommandshistory:
 - git config pull.rebase true
 hidecommandlog: false
+ignorewhitespaceindiffview: false
