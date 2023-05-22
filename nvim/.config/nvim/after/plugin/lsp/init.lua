@@ -3,7 +3,7 @@ local lsp = require("lsp-zero")
 lsp.preset({
     name = 'recommended',
     set_lsp_keymaps = false,
-    suggest_lsp_servers = false,
+    suggest_lsp_servers = true,
     sign_icons = false
 })
 lsp.ensure_installed({
@@ -41,6 +41,7 @@ cmp.setup({
     sources = cmp.config.sources({
         { name = 'luasnip' },
         { name = 'nvim_lsp' },
+        { name = "crates" },
     }, {
         { name = 'path' },
         { name = 'buffer' },
@@ -97,15 +98,16 @@ lsp.on_attach(function(client, bufnr)
         { desc = '[V]iew [R]eferences [L]ist' })
     --vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
     vim.keymap.set("n", "<leader>rn", function() vim.lsp.buf.rename() end, opts)
-    vim.keymap.set("i", "<C-s>", function() vim.lsp.buf.signature_help() end, opts)
+    vim.keymap.set("i", '<C-s>', function() vim.lsp.buf.signature_help() end, opts) -- Show Signature
 
+
+    vim.keymap.set("n", "<leader>,", vim.lsp.buf.format)
 
     --vim.keymap.set("n", 'gr', 'lsp_references')                                         -- Goto References
     --vim.keymap.set("n", 'gI', '<cmd> lua vim.lsp.implementations') -- Goto Implementations
     --vim.keymap.set("n", '<Leader>cr', function() vim.lsp.buf.rename() end, opts) -- Code Rename
     vim.keymap.set({ 'v', 'n' }, '<Leader>ca', vim.lsp.buf.code_action)
 
-    --vim.keymap.set("i", '<C-s>', function() vim.lsp.buf.signature_help() end, opts) -- Show Signature
 
     vim.keymap.set("n", '<Leader>wl', function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, opts)
     vim.keymap.set("n", '<Leader>wa', function() vim.lsp.buf.add_workspace_folder() end, opts)
@@ -116,7 +118,7 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set("n", 'dp', function() vim.diagnostic.goto_prev() end, opts) -- Diagnostics Previous
     vim.keymap.set("n", 'dn', function() vim.diagnostic.goto_next() end, opts) -- Diagnostics Next
     --vim.keymap.set("n", '<Leader>dl', 'diagnostics')
-    --vim.keymap.set("n", '<Leader>ld', '<cmd>Telescope diagnostics<CR>')                 -- List Diagnotics
+    vim.keymap.set("n", '<Leader>ld', '<cmd>Telescope diagnostics<CR>')                 -- List Diagnotics
     vim.keymap.set("n", '<Leader>ll', function() vim.diagnostic.setloclist() end, opts) -- List Location List
     vim.keymap.set("n", '<Leader>lf', function() vim.diagnostic.setqflist() end, opts)  -- List quickFix
     -- Show diagnostic popup

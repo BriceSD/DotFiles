@@ -29,7 +29,7 @@ require("telescope").setup({
     },
 })
 require("telescope").load_extension("undo")
-vim.keymap.set("n", "<leader>U", "<cmd>Telescope undo<cr>")
+vim.keymap.set("n", "<leader>u", "<cmd>Telescope undo<cr>")
 
 local nmap = function(keys, func, desc)
     if desc then
