@@ -19,6 +19,16 @@ local plugins = {
     'numToStr/Comment.nvim', -- 'gc' to comment visual regions/lines
     'm4xshen/autoclose.nvim', -- manage auto pairs & closes brackets
 
+    -- Markdown preview
+    { "ellisonleao/glow.nvim", config = true, cmd = "Glow" },
+    {
+        "iamcco/markdown-preview.nvim",
+        ft = "markdown",
+        build = function()
+            vim.fn["mkdp#util#install"]()
+        end,
+    },
+
 
     -- Tree Sitter
     {
