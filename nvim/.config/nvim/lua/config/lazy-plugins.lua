@@ -73,18 +73,6 @@ local plugins = {
         -- pip3 install ueberzug
     },
 
-    {
-        'glepnir/dashboard-nvim',
-        event = 'VimEnter',
-        config = function()
-            require('dashboard').setup {
-                theme = 'hyper' --  theme is doom and hyper default is hyper
-                -- config
-            }
-        end,
-        dependencies = { { 'nvim-tree/nvim-web-devicons' } }
-    },
-
     -- FAST Navigation. Forget horizontal native navigation
     {
         'ggandor/leap.nvim',
