@@ -24,6 +24,7 @@ bind <C-p> back
 
 " set hintfiltermode vimperator
 
+set searchurls.rs https://doc.rust-lang.org/nightly/std/index.html?search=
 
 " ** Youtube
 " https://github.com/glacambre/.dotfiles/blob/master/default/.config/tridactyl/tridactylrc
