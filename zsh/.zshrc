@@ -74,6 +74,28 @@ plugins=(zsh-autosuggestions zsh-syntax-highlighting git sudo pyenv rust z zsh-n
 
 source $ZSH/oh-my-zsh.sh
 
+source <(curl -sL init.zshell.dev); zzinit
+
+GENCOMPL_FPATH=$HOME/.cache/zsh-completion-generator
+if [ ! -d "$GENCOMPL_FPATH" ]; then
+  mkdir -p $GENCOMPL_FPATH
+fi
+fpath=($GENCOMPL_FPATH $fpath)
+zstyle :plugin:zsh-completion-generator programs fzf
+zinit wait'3' lucid for RobSis/zsh-completion-generator
+
+
+# The following lines were added by compinstall
+
+zstyle ':completion:*' completer _complete _ignored _approximate
+zstyle ':completion:*' matcher-list '' '+m:{[:lower:]}={[:upper:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'r:|[._-]=* r:|=*'
+zstyle :compinstall filename '/home/brice/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+
+zstyle ':completion:*' completer _extensions _complete _approximate
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
