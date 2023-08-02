@@ -207,6 +207,8 @@ local plugins = {
         end,
     },
 
+    -- Latex related plugins
+    'lervag/vimtex',
 
     -- Debugging
     {
