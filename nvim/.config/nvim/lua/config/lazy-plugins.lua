@@ -50,17 +50,6 @@ local plugins = {
     -- Undo tree history
     'mbbill/undotree',
 
-    -- Browse filesystem in a tree
-    -- {
-    --     'nvim-neo-tree/neo-tree.nvim',
-    --     branch = 'v2.x',
-    --     dependencies = {
-    --         'nvim-lua/plenary.nvim',
-    --         'nvim-tree/nvim-web-devicons', -- not strictly required, but recommended
-    --         'MunifTanjim/nui.nvim',
-    --     },
-    -- },
-
     -- Browse filesystem with ranger
     {
         'kevinhwang91/rnvimr',
