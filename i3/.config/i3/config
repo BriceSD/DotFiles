@@ -259,7 +259,7 @@ exec --no-startup-id "devmon --no-gui"
 
 ## Background
 #exec_always --no-startup-id feh --bg-scale $HOME/.config/i3/wallpaper/Stained-Glass-Vector-Lines.jpg
-exec_always --no-startup-id feh --bg-scale $HOME/.config/i3/wallpaper/gawa.jpg
+exec_always --no-startup-id feh --bg-scale $HOME/.config/i3/wallpaper/kanagawa.jpg
 
 ## hide mouse cursor when not used
 exec_always --no-startup-id unclutter -idle 1 -jitter 2 -root &
