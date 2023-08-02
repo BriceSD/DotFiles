@@ -23,11 +23,11 @@ TEXT
 {"full_text":"${endif}${endif}${endif}"},\
 
 ## CPU temperature:
-{"full_text":"${if_match ${acpitemp}<90}${acpitemp}°C","color":"\#909737","separator":false,"separator_block_width":6},\
+{"full_text":"${if_match ${exec cat /sys/devices/platform/coretemp.0/hwmon/hwmon4/temp1_input | cut -c-2 }<90}${exec cat /sys/devices/platform/coretemp.0/hwmon/hwmon4/temp1_input | cut -c-2 }°C","color":"\#909737","separator":false,"separator_block_width":6},\
 {"full_text":"${else}"},\
-{"full_text":"${if_match ${acpitemp}<70}${acpitemp}°C","color":"\#b27d12","separator":false,"separator_block_width":6},\
+{"full_text":"${if_match ${exec cat /sys/devices/platform/coretemp.0/hwmon/hwmon4/temp1_input | cut -c-2 }<70}${exec cat /sys/devices/platform/coretemp.0/hwmon/hwmon4/temp1_input | cut -c-2 }°C","color":"\#b27d12","separator":false,"separator_block_width":6},\
 {"full_text":"${else}"},\
-{"full_text":"${if_match ${acpitemp}>=70}${acpitemp}°C","color":"\#802828","separator":false,"separator_block_width":6},\
+{"full_text":"${if_match ${exec cat /sys/devices/platform/coretemp.0/hwmon/hwmon4/temp1_input | cut -c-2 }>=70}${exec cat /sys/devices/platform/coretemp.0/hwmon/hwmon4/temp1_input | cut -c-2 }°C","color":"\#802828","separator":false,"separator_block_width":6},\
 {"full_text":"${else}"},\
 {"full_text":"${endif}${endif}${endif}"},\
 
