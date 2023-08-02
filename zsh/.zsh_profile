@@ -82,5 +82,8 @@ man() {
 alias v="nvim"
 alias mydocker='docker build -t mydocker . && docker run --cap-add="SYS_ADMIN" mydocker'
 
-# If running from tty1 start sway
-[ "$(tty)" = "/dev/tty1" ] && exec sway
+
+if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
+  exec startx
+fi
+
