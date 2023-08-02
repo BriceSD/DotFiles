@@ -42,6 +42,8 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 --vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
 
 
+vim.keymap.set("n", "<leader>q", "<cmd>:wa<CR><cmd>!cargo fmt<CR><CR>")
+
 -- navigate windows using alt
 vim.keymap.set("n", "<M-p>", "<C-w>h")
 vim.keymap.set("n", "<M-h>", "<C-w>j")
