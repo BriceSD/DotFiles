@@ -269,13 +269,13 @@ exec_always --no-startup-id unclutter -idle 1 -jitter 2 -root &
 input * repeat_delay 250
 input * repeat_rate 25
 
+## Monitor positioning.
+## 1919 in order to make them ovelap by 1 pixel and making navigating left/right always stay in the same monitor
 output DP-2 mode 2560x1440@119.998Hz position 1919,0
 output eDP-1 mode 1920x1080@59.977Hz position 0,0
 
 ## Terminal
 exec --no-startup-id swaymsg 'workspace $WS3; exec kitty'
-
-exec --no-startup-id 'sudo modprobe ddcci'
 
 include @sysconfdir@/sway/config.d/*
 
