@@ -115,7 +115,7 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set("n", "<leader>,", vim.lsp.buf.format)
 
     --vim.keymap.set("n", 'gr', 'lsp_references')                                         -- Goto References
-    --vim.keymap.set("n", 'gI', '<cmd> lua vim.lsp.implementations') -- Goto Implementations
+    vim.keymap.set("n", 'gI', '<cmd>lua vim.lsp.implementations<CR>') -- Goto Implementations
     --vim.keymap.set("n", '<Leader>cr', function() vim.lsp.buf.rename() end, opts) -- Code Rename
     vim.keymap.set({ 'v', 'n' }, '<Leader>ca', vim.lsp.buf.code_action)
 
@@ -126,8 +126,9 @@ lsp.on_attach(function(client, bufnr)
 
     -- Diagnostics:
     --vim.keymap.set("n", '<Leader>dl', function() vim.diagnostic.open_float() end, opts) -- Diagnostics
-    vim.keymap.set("n", 'dp', function() vim.diagnostic.goto_prev() end, opts) -- Diagnostics Previous
-    vim.keymap.set("n", 'dn', function() vim.diagnostic.goto_next() end, opts) -- Diagnostics Next
+    vim.keymap.set("n", 'dp', function() vim.diagnostic.goto_prev() end, opts)          -- Diagnostics Previous
+    vim.keymap.set("n", 'dl', function() vim.diagnostic.goto_prev() end, opts)          -- Diagnostics Previous
+    vim.keymap.set("n", 'dn', function() vim.diagnostic.goto_next() end, opts)          -- Diagnostics Next
     --vim.keymap.set("n", '<Leader>dl', 'diagnostics')
     vim.keymap.set("n", '<Leader>ld', '<cmd>Telescope diagnostics<CR>')                 -- List Diagnotics
     vim.keymap.set("n", '<Leader>ll', function() vim.diagnostic.setloclist() end, opts) -- List Location List
@@ -144,6 +145,7 @@ end)
 vim.diagnostic.config({
     virtual_text = true
 })
+
 
 -- (Optional) Configure lua language server for neovim
 lspconfig.lua_ls.setup(lsp.nvim_lua_ls())
@@ -188,7 +190,7 @@ whichkey.register {
     g = {
         name = 'LSP', -- optional group name
         D = { '[LSP] Goto Declaration' },
-        --I = { '[LSP] Show Implementations' },
+        I = { '[LSP] Show Implementations' },
         K = { '[LSP] Display Hover Info' },
         d = { '[LSP] Goto definition' },
     },
@@ -228,5 +230,4 @@ whichkey.register {
         }
     }
 }
-
 lsp.setup()
