@@ -1051,11 +1051,11 @@ void setup() {
         // kaleidoscope::plugin::Qukey(0, KeyAddr(2, 3), Key_LeftControl),  // Middle HOME
         // kaleidoscope::plugin::Qukey(0, KeyAddr(2, 4), ShiftToLayer(3)),  // Index HOME
         // //Down Row
-        kaleidoscope::plugin::Qukey(0, KeyAddr(3, 1), M(VIM_WQ)),
+        kaleidoscope::plugin::Qukey(0, KeyAddr(2, 0), M(VIM_WQ)),
         // kaleidoscope::plugin::Qukey(0, KeyAddr(3, 4), ShiftToLayer(5)),   // Index DOWN
         // // Mod Row 
         // kaleidoscope::plugin::Qukey(0, KeyAddr(1, 7), Key_LeftControl),   // Thumb Second Leftmost
-        kaleidoscope::plugin::Qukey(0, KeyAddr(2, 7), M(KEY_DOT_SPACE_SHIFT)),   // Thumb Leftmost
+        // kaleidoscope::plugin::Qukey(0, KeyAddr(2, 7), M(KEY_DOT_SPACE_SHIFT)),   // Thumb Leftmost
         //
         // // Right hand
         // // UP Row
