@@ -210,6 +210,9 @@ local plugins = {
     -- Latex related plugins
     'lervag/vimtex',
 
+    -- Java related plugins
+    'mfussenegger/nvim-jdtls',
+
     -- Debugging
     {
         'mfussenegger/nvim-dap',
