@@ -129,3 +129,7 @@ eval "$(starship init zsh)"
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 source /usr/share/nvm/init-nvm.sh
+
+if [ -e /home/brice/.nix-profile/etc/profile.d/nix.sh ]; then . /home/brice/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+[ -f "/home/brice/.ghcup/env" ] && source "/home/brice/.ghcup/env" # ghcup-env
