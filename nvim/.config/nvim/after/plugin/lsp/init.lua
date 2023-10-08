@@ -146,7 +146,41 @@ vim.diagnostic.config({
 })
 
 -- (Optional) Configure lua language server for neovim
-require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
+lspconfig.lua_ls.setup(lsp.nvim_lua_ls())
+
+
+-- Latex setup
+lspconfig.ltex.setup({
+    filetypes = { "tex", "vimwiki", "markdown", "md", "pandoc", "vimwiki.markdown.pandoc" },
+    flags = { debounce_text_changes = 300 },
+    settings = {
+        ltex = {
+            language = "en"
+            -- language = "fr"
+        }
+    },
+    on_attach = on_attach,
+})
+
+-- require('lspconfig').ltex.setup({
+--   filetypes = {  "markdown", "md", "tex" },  flags = { debounce_text_changes = 300 },
+--   settings = {
+--     ltex = {
+--       language = "fr-FR",
+--       setenceCacheSize = 2000,
+--       additionalRules = {
+--       	enablePickyRules = true,
+--       	motherTongue = "de-FR",
+--       },
+--       trace = { server = "verbose" },
+--       disabledRules = {},
+--       hiddenFalsePositives = {},
+--       username = "x@y.z",
+--       apiKey = "tete",
+--     }
+--   },
+--   on_attach = on_attach,
+-- })
 
 
 local whichkey = require 'which-key'
