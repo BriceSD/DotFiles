@@ -2,29 +2,28 @@ sanitize tridactyllocal tridactylsync
 
 colours dark
 
-alias playAllVideos js tri.native.run("mpv --really-quiet --ontop --keepaspect-window --profile=protocol.http " + Array.from(document.querySelectorAll("a, iframe, video")).reduce((s, e) => {let r=(/^https?:\/\/((www.)?youtu((\.be\/)|(be\.com\/((embed\/)|(watch\?v=))))[^ ]+)|(.+\.webm)$/);let l="";if(e.tagName=="IFRAME")l=e.src.match(r);else if(e.tagName=="A")l=e.href.match(r)||e.innerText.match(r);else if(e.tagName=="VIDEO")l=[e.currentSrc?e.currentSrc:e.src];console.log(l);return s+(l && l.length > 0 && s.indexOf(l[0])<0?"'"+l[0]+"' ":"")},""))
-bind <A-v> playAllVideos
-
 set hintdelay 100
 set hintfiltermode vimperator-reflow
-set hintchars shtareniwfdoluqm
+set hintchars shtarenipcfdoluqm
 
-" make d take you to the left (I find it much less confusing)
+" make d take you to the left (I find it less confusing)
 bind d composite tabprev; tabclose #
 bind D tabclose
 
 bind A tabnext_gt
 bind H tabprev
 
-bind n scrollline 5
-bind a scrollline -5
+"bind n scrollline 5
+"bind a scrollline -5
 
 bind <C-e> forward
-bind <C-p> back
+bind <C-y> back
 
 " set hintfiltermode vimperator
 
 set searchurls.rs https://doc.rust-lang.org/nightly/std/index.html?search=
+set searchurls.yt https://www.youtube.com/results?search_query=
+set searchurls.gg https://www.google.com/search?q=
 
 " ** Youtube
 " https://github.com/glacambre/.dotfiles/blob/master/default/.config/tridactyl/tridactylrc
