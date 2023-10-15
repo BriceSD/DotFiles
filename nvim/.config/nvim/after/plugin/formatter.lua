@@ -20,4 +20,6 @@ require("conform").setup({
     -- },
 })
 
-vim.keymap.set('n', '<leader>.',  "<cmd>lua require('conform').format()<CR>", { desc = 'Format using linter' })
+vim.keymap.set('n', '<leader>,', function()
+    conform.format({ timeout_ms = 500, lsp_fallback = true })
+end, { desc = 'Format using linter' })

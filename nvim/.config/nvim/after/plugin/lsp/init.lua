@@ -102,7 +102,7 @@ lsp_zero.on_attach(function(client, bufnr)
     vim.keymap.set("n", "<leader>rn", function() vim.lsp.buf.rename() end, opts)
     vim.keymap.set("i", '<C-s>', function() vim.lsp.buf.signature_help() end, opts) -- Show Signature
 
-    vim.keymap.set("n", "<leader>,", vim.lsp.buf.format)
+    vim.keymap.set("n", "<leader>.", vim.lsp.buf.format)
 
     --vim.keymap.set("n", 'gr', 'lsp_references')                                         -- Goto References
     vim.keymap.set("n", 'gI', '<cmd>lua vim.lsp.implementations<CR>') -- Goto Implementations
