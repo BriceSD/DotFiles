@@ -1,39 +1,30 @@
 local lspconfig = require("lspconfig")
-local lsp = require("lsp-zero")
---lsp.preset("recommended")
-lsp.preset({
+local lsp_zero = require("lsp-zero")
+local ih = require('lsp-inlayhints')
+
+ih.setup()
+
+lsp_zero.preset({
     name = 'recommended',
     set_lsp_keymaps = false,
     suggest_lsp_servers = true,
     sign_icons = false
 })
-lsp.ensure_installed({
+lsp_zero.ensure_installed({
+    'eslint',
     'tsserver',
     'rust_analyzer',
-    'eslint',
-    --    'sumneko_lua',
 })
 
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
-require'lspconfig'.tsserver.setup{
-  capabilities = capabilities,
-  handlers = {
-    ["textDocument/publishDiagnostics"] = vim.lsp.with(
-        vim.lsp.diagnostic.on_publish_diagnostics,
-        { virtual_text = false, signs = true, update_in_insert = false, underline = true}
-    ),
-  }
-}
-
-
-
 -- nvim-cmp setup
 local cmp = require('cmp')
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
-local luasnip = require 'luasnip'
+
+local luasnip = require('luasnip')
 cmp.setup({
     snippet = {
         expand = function(args)
@@ -44,7 +35,7 @@ cmp.setup({
         ['<C-u>'] = cmp.mapping.scroll_docs(-4),
         ['<C-d>'] = cmp.mapping.scroll_docs(4),
         --['<C-Space>'] = cmp.mapping.complete(),
-        ['<C-h>'] = cmp.mapping.confirm {
+        ['<C-e>'] = cmp.mapping.confirm {
             behavior = cmp.ConfirmBehavior.Replace,
             select = true,
         },
@@ -60,8 +51,8 @@ cmp.setup({
 })
 
 
-local cmp_mappings = lsp.defaults.cmp_mappings({
-    ['<C-h>'] = cmp.mapping.confirm({ select = true }),
+local cmp_mappings = lsp_zero.defaults.cmp_mappings({
+    ['<C-e>'] = cmp.mapping.confirm({ select = true }),
     ['<C-Space>'] = cmp.mapping.complete(),
 })
 
@@ -73,11 +64,11 @@ cmp_mappings['<C-x>'] = nil
 
 cmp_mappings['<F4>'] = nil
 
-lsp.setup_nvim_cmp({
+lsp_zero.setup_nvim_cmp({
     mapping = cmp_mappings
 })
 
-lsp.set_preferences({
+lsp_zero.set_preferences({
     suggest_lsp_servers = false,
     sign_icons = {
         error = 'E',
@@ -94,7 +85,7 @@ end
 
 buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-lsp.on_attach(function(client, bufnr)
+lsp_zero.on_attach(function(client, bufnr)
     local opts = { buffer = bufnr, remap = false }
 
     vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
@@ -111,13 +102,12 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set("n", "<leader>rn", function() vim.lsp.buf.rename() end, opts)
     vim.keymap.set("i", '<C-s>', function() vim.lsp.buf.signature_help() end, opts) -- Show Signature
 
-
     vim.keymap.set("n", "<leader>,", vim.lsp.buf.format)
 
     --vim.keymap.set("n", 'gr', 'lsp_references')                                         -- Goto References
     vim.keymap.set("n", 'gI', '<cmd>lua vim.lsp.implementations<CR>') -- Goto Implementations
     --vim.keymap.set("n", '<Leader>cr', function() vim.lsp.buf.rename() end, opts) -- Code Rename
-    vim.keymap.set({ 'v', 'n' }, '<Leader>ca', vim.lsp.buf.code_action)
+    vim.keymap.set({ 'v', 'n' }, '<Leader>e', vim.lsp.buf.code_action)
 
 
     vim.keymap.set("n", '<Leader>wl', function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, opts)
@@ -148,8 +138,62 @@ vim.diagnostic.config({
 
 
 -- (Optional) Configure lua language server for neovim
-lspconfig.lua_ls.setup(lsp.nvim_lua_ls())
+--lspconfig.lua_ls.setup(lsp_zero.nvim_lua_ls())
+lspconfig.lua_ls.setup({
+    on_attach = function(client, bufnr)
+        ih.on_attach(client, bufnr)
+    end,
+    settings = {
+        Lua = {
+            hint = {
+                enable = true,
+            },
+        },
+    },
+})
 
+lspconfig.tsserver.setup {
+    on_attach = function(client, bufnr)
+        ih.on_attach(client, bufnr)
+    end,
+    settings = {
+        typescript = {
+            inlayHints = {
+                includeInlayParameterNameHints = 'all',
+                includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+                includeInlayFunctionParameterTypeHints = true,
+                includeInlayVariableTypeHints = true,
+                includeInlayVariableTypeHintsWhenTypeMatchesName = false,
+                includeInlayPropertyDeclarationTypeHints = true,
+                includeInlayFunctionLikeReturnTypeHints = true,
+                includeInlayEnumMemberValueHints = true,
+            }
+        },
+        javascript = {
+            inlayHints = {
+                includeInlayParameterNameHints = 'all',
+                includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+                includeInlayFunctionParameterTypeHints = true,
+                includeInlayVariableTypeHints = true,
+                includeInlayVariableTypeHintsWhenTypeMatchesName = false,
+                includeInlayPropertyDeclarationTypeHints = true,
+                includeInlayFunctionLikeReturnTypeHints = true,
+                includeInlayEnumMemberValueHints = true,
+            }
+        }
+    },
+    capabilities = capabilities,
+    handlers = {
+        ["textDocument/publishDiagnostics"] = vim.lsp.with(
+            vim.lsp.diagnostic.on_publish_diagnostics,
+            { virtual_text = false, signs = true, update_in_insert = false, underline = true }
+        ),
+    }
+}
+
+require('lspconfig').eslint.setup {
+    capabilities = capabilities
+}
 
 -- Latex setup
 lspconfig.ltex.setup({
@@ -230,4 +274,4 @@ whichkey.register {
         }
     }
 }
-lsp.setup()
+lsp_zero.setup()

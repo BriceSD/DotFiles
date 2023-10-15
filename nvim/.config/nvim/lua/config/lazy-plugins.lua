@@ -23,7 +23,7 @@ local plugins = {
     'troydm/zoomwintab.vim',
 
     -- Markdown preview
-    { "ellisonleao/glow.nvim", config = true, cmd = "Glow" },
+    { "ellisonleao/glow.nvim",       config = true, cmd = "Glow" },
     {
         "iamcco/markdown-preview.nvim",
         ft = "markdown",
@@ -189,6 +189,15 @@ local plugins = {
     {
         "folke/trouble.nvim",
         dependencies = "nvim-tree/nvim-web-devicons",
+    },
+
+    -- Inlay hints
+    { "lvimuser/lsp-inlayhints.nvim" },
+
+    -- Formatter
+    {
+        'stevearc/conform.nvim',
+        opts = {},
     },
 
     -- Rust related plugins
