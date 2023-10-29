@@ -85,11 +85,8 @@ local plugins = {
     {
         "nvim-telescope/telescope.nvim",
         dependencies = {
-            "nvim-lua/plenary.nvim", "kdheepak/lazygit.nvim",
+            "nvim-lua/plenary.nvim",
         },
-        config = function()
-            require("telescope").load_extension("lazygit")
-        end,
     },
     {
         "aaronhallaert/advanced-git-search.nvim",
