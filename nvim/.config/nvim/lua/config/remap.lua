@@ -29,8 +29,6 @@ vim.keymap.set("n", "<leader>Y", [["+Y]])
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
 vim.keymap.set("n", "Q", "<nop>")
-vim.keymap.set("i", "<C-h>", "<nop>") -- backspace not needed as C-h
-vim.keymap.set("i", "<C-e>", "<nop>") -- backspace not needed as C-e
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 
 vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
@@ -46,13 +44,17 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 vim.keymap.set("n", "<leader>q", "<cmd>:wa<CR><cmd>!cargo fmt<CR><CR>")
 
--- navigate windows using alt
+-- create splits using alt
+vim.keymap.set("n", "<M-k>", "<C-w>s")
+vim.keymap.set("n", "<M-f>", "<C-w>v")
+
+-- navigate splits using alt
 vim.keymap.set("n", "<M-y>", "<C-w>h")
 vim.keymap.set("n", "<M-h>", "<C-w>j")
 vim.keymap.set("n", "<M-a>", "<C-w>k")
 vim.keymap.set("n", "<M-e>", "<C-w>l")
 
--- resize windows using alt
+-- resize splits using alt
 vim.keymap.set("n", "<M-Y>", "<C-w><")
 vim.keymap.set("n", "<M-H>", "<C-w>+")
 vim.keymap.set("n", "<M-E>", "<C-w>>")

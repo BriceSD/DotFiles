@@ -35,7 +35,7 @@ cmp.setup({
         ['<C-u>'] = cmp.mapping.scroll_docs(-4),
         ['<C-d>'] = cmp.mapping.scroll_docs(4),
         --['<C-Space>'] = cmp.mapping.complete(),
-        ['<C-e>'] = cmp.mapping.confirm {
+        ['<C-s>'] = cmp.mapping.confirm {
             behavior = cmp.ConfirmBehavior.Replace,
             select = true,
         },
@@ -52,7 +52,7 @@ cmp.setup({
 
 
 local cmp_mappings = lsp_zero.defaults.cmp_mappings({
-    ['<C-e>'] = cmp.mapping.confirm({ select = true }),
+    ['<C-s>'] = cmp.mapping.confirm({ select = true }),
     ['<C-Space>'] = cmp.mapping.complete(),
 })
 
@@ -107,7 +107,7 @@ lsp_zero.on_attach(function(client, bufnr)
     --vim.keymap.set("n", 'gr', 'lsp_references')                                         -- Goto References
     vim.keymap.set("n", 'gI', '<cmd>lua vim.lsp.implementations<CR>') -- Goto Implementations
     --vim.keymap.set("n", '<Leader>cr', function() vim.lsp.buf.rename() end, opts) -- Code Rename
-    vim.keymap.set({ 'v', 'n' }, '<Leader>e', vim.lsp.buf.code_action)
+    vim.keymap.set({ 'v', 'n' }, '<Leader>a', vim.lsp.buf.code_action)
 
 
     vim.keymap.set("n", '<Leader>wl', function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, opts)

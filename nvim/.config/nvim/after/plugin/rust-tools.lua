@@ -162,7 +162,7 @@ rt.setup({
             -- Hover actions
             vim.keymap.set({"n", "v"}, "K", rt.hover_actions.hover_actions, { buffer = bufnr })
             -- Code action groups
-            vim.keymap.set({"n", "v"}, "<Leader>e", rt.code_action_group.code_action_group, { buffer = bufnr })
+            vim.keymap.set({"n", "v"}, "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
             vim.keymap.set('n', '<Leader>gd', ':RustOpenExternalDocs<CR>')
             vim.keymap.set('n', 'K', ':RustHoverActions<CR>')
             vim.keymap.set('n', '<Leader>k', ':RustMoveItemUp<CR>')
