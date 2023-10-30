@@ -82,6 +82,7 @@ local plugins = {
             'nvim-lua/plenary.nvim',
         }
     },
+    -- Telescope
     {
         "nvim-telescope/telescope.nvim",
         dependencies = {
@@ -134,6 +135,7 @@ local plugins = {
             "nvim-treesitter/nvim-treesitter",
             "antoinemadec/FixCursorHold.nvim",
             "rouge8/neotest-rust",
+            "haydenmeade/neotest-jest",
         }
     },
 

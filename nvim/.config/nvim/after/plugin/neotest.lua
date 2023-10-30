@@ -10,7 +10,15 @@ require("neotest").setup({
         require("neotest-rust") {
             args = { "--no-capture" },
             dap_adapter = "lldb",
-        }
+        },
+        require("neotest-jest")({
+          jestCommand = "npm test --",
+          jestConfigFile = "custom.jest.config.ts",
+          env = { CI = true },
+          cwd = function()
+            return vim.fn.getcwd()
+          end,
+        }),
     },
 })
 
@@ -24,3 +32,4 @@ vim.keymap.set('n', "<leader>no", function() require("neotest").output.open({ en
 vim.keymap.set('n', "<leader>nO", function() require("neotest").output_panel.toggle() end,
     { desc = "Toggle Output Panel" })
 vim.keymap.set('n', "<leader>nS", function() require("neotest").run.stop() end, { desc = "Stop" })
+vim.keymap.set('n', "<leader>nl", function() require("neotest").run.run_last() end, { desc = "Run Last Test" })
