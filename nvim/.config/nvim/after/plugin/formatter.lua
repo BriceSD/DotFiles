@@ -7,6 +7,12 @@ require("conform").setup({
         -- Use a sub-list to run only the first available formatter
         javascript = { { "prettierd", "prettier" } },
         typescript = { { "prettierd", "prettier" } },
+        vue = { { "prettierd", "prettier" } },
+        css = { { "prettierd", "prettier" } },
+        less = { { "prettierd", "prettier" } },
+        html = { { "prettierd", "prettier" } },
+        json = { { "prettierd", "prettier" } },
+        yaml = { { "prettierd", "prettier" } },
         rust = { "rustfmt" },
         ["*"] = { "codespell" },
         -- Use the "_" filetype to run formatters on filetypes that don't

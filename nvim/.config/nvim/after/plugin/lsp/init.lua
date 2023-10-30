@@ -24,6 +24,21 @@ capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 local cmp = require('cmp')
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
+local autocomplete_group = vim.api.nvim_create_augroup('vimrc_autocompletion', { clear = true })
+vim.api.nvim_create_autocmd('FileType', {
+    pattern = { 'sql', 'mysql', 'plsql' },
+    callback = function()
+        cmp.setup.buffer({
+            sources = {
+                { name = 'vim-dadbod-completion' },
+                { name = 'buffer' },
+                { name = 'vsnip' },
+            },
+        })
+    end,
+    group = autocomplete_group,
+})
+
 local luasnip = require('luasnip')
 cmp.setup({
     snippet = {

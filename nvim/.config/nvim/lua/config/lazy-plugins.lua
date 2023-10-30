@@ -108,6 +108,14 @@ local plugins = {
     -- Highlighting other uses of the word under the cursor using either LSP, Tree-sitter, or regex
     'RRethy/vim-illuminate',
 
+    -- DB
+    {
+        'kristijanhusak/vim-dadbod-ui',
+        dependencies = {
+            { 'tpope/vim-dadbod',                     lazy = true },
+            { 'kristijanhusak/vim-dadbod-completion', ft = { 'sql', 'mysql', 'plsql' }, lazy = true },
+        }
+    },
 
     -- Refactoring
     {
