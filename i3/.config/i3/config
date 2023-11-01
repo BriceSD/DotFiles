@@ -13,8 +13,6 @@ set $mod Mod4
 set $dmenu "dmenu -b -f -i -l 10 -fn '-*-Verdana-*-*-*-*-25-*-*-*-*-*-*-*'"
 
 # font for window titles. ISO 10646 = Unicode
-#set $fonttype "-misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1"
-#set $fonttype "pango:Terminus 10"
 set $fonttype "pango:i3barsymbols 8"
 font $fonttype
 
@@ -62,19 +60,8 @@ for_window [title="Library"] floating enable
 for_window [title="Firefox Preferences"] floating enable
 
 # Bind applications
-## launch firefox
-#bindsym $mod+j exec --no-startup-id firefox
-
-## launch intellij idea
-#bindsym $mod+y exec --no-startup-id intellij-idea-ultimate-edition
-#
-## launch pycharm
-#bindsym $mod+agrave exec --no-startup-id sh $HOME/Pycharm/bin/pycharm.sh
-
-## launch urxvt (terminal)
-#bindsym $mod+Return exec urxvt
+## launch terminal
 bindsym $mod+Return exec kitty
-#bindsym $mod+Return exec terminology
 
 # Navigation
 ## Use Mouse+$mod to drag floating windows to their wanted position
@@ -164,28 +151,28 @@ bindsym $mod+u focus parent
 #bindsym $mod+q [urgent=latest] focus
 
 # switch to workspace
-bindsym  $mod+n  workspace  $WS1
-bindsym  $mod+r  workspace  $WS2
+bindsym  $mod+s  workspace  $WS1
+bindsym  $mod+d  workspace  $WS2
 bindsym  $mod+t  workspace  $WS3
-bindsym  $mod+s  workspace  $WS4
-bindsym  $mod+g  workspace  $WS5
-bindsym  $mod+Control+n  workspace  $WS6
-bindsym  $mod+Control+r  workspace  $WS7
+bindsym  $mod+r  workspace  $WS4
+bindsym  $mod+n  workspace  $WS5
+bindsym  $mod+Control+s  workspace  $WS6
+bindsym  $mod+Control+d  workspace  $WS7
 bindsym  $mod+Control+t  workspace  $WS8
-bindsym  $mod+Control+s  workspace  $WS9
-bindsym  $mod+Control+g  workspace  $WS10
+bindsym  $mod+Control+r  workspace  $WS9
+bindsym  $mod+Control+n  workspace  $WS10
 
 # move focused container to workspace
-bindsym  $mod+Shift+n  move  container  to  workspace  $WS1
-bindsym  $mod+Shift+r  move  container  to  workspace  $WS2
+bindsym  $mod+Shift+s  move  container  to  workspace  $WS1
+bindsym  $mod+Shift+d  move  container  to  workspace  $WS2
 bindsym  $mod+Shift+t  move  container  to  workspace  $WS3
-bindsym  $mod+Shift+s  move  container  to  workspace  $WS4
-bindsym  $mod+Shift+g  move  container  to  workspace  $WS5
-bindsym  $mod+Shift+Control+n  move  container  to  workspace  $WS6
-bindsym  $mod+Shift+Control+r  move  container  to  workspace  $WS7
+bindsym  $mod+Shift+r  move  container  to  workspace  $WS4
+bindsym  $mod+Shift+n  move  container  to  workspace  $WS5
+bindsym  $mod+Shift+Control+s  move  container  to  workspace  $WS6
+bindsym  $mod+Shift+Control+d  move  container  to  workspace  $WS7
 bindsym  $mod+Shift+Control+t  move  container  to  workspace  $WS8
-bindsym  $mod+Shift+Control+s  move  container  to  workspace  $WS9
-bindsym  $mod+Shift+Control+g  move  container  to  workspace  $WS10
+bindsym  $mod+Shift+Control+r  move  container  to  workspace  $WS9
+bindsym  $mod+Shift+Control+n  move  container  to  workspace  $WS10
 
 
 
@@ -263,26 +250,16 @@ bar {
 exec --no-startup-id "devmon --no-gui"
 
 ## Background
-#exec_always --no-startup-id feh --bg-scale $HOME/.config/i3/wallpaper/Stained-Glass-Vector-Lines.jpg
 exec_always --no-startup-id feh --bg-scale $HOME/.config/i3/wallpaper/kanagawa.jpg
 
 ## hide mouse cursor when not used
 exec_always --no-startup-id unclutter -idle 1 -jitter 2 -root &
 
 ## Keypress repeat rate
-#exec_always --no-startup-id  "sh `xset r rate 200 30`"
 exec_always --no-startup-id  "sh `xset r rate 240 30`"
 
 exec --no-startup-id i3-msg 'workspace $WS6; exec discord'
 
-## Music
-#exec --no-startup-id i3-msg 'workspace $WS8; exec clementine'
-
-## JDownloader
-#exec --no-startup-id i3-msg 'workspace $WS10; exec /bin/JDownloader'
-
 ## Terminal
-##exec --no-startup-id i3-msg 'workspace $WS3; exec urxvt'
 exec --no-startup-id i3-msg 'workspace $WS3; exec kitty'
-#exec --no-startup-id i3-msg 'workspace $WS3; exec terminology'
 
