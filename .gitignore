@@ -1,4 +1,5 @@
-lazygit/.config/lazygit/state.yml
-ranger/.config/ranger/plugins/__pycache__
-ranger/.config/ranger/__pycache__
-ranger/.config/ranger/plugins/__pycache__
+./config/lazygit/.config/lazygit/state.yml
+./config/ranger/.config/ranger/plugins/__pycache__
+./config/ranger/.config/ranger/__pycache__
+./config/ranger/.config/ranger/plugins/__pycache__
+./config/nvim/lazy-lock.json
