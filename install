@@ -1,7 +1,0 @@
-#!/bin/sh
-for folder in `ls -d */`
-do
-    echo "stow $folder"
-    stow -D $folder -t $HOME
-    stow $folder -t $HOME
-done

@@ -489,7 +489,7 @@ const macro_t *macroAction(uint8_t macro_id, KeyEvent &event) {
                         Macros.tap(Key_Keypad9);
                         Macros.tap(Key_Keypad2);
                         Macros.release(Key_LeftAlt);
-ShiftBlocker.disable();
+                        ShiftBlocker.disable();
                         return MACRO_NONE;
                     } else {
                         return MACRO(I(15), T(0));
@@ -1086,12 +1086,12 @@ void setup() {
     // while typing on home-row qukeys, despite setting the overlap threshold (see above) to 100%. 
     // It may mean that you’ll need to slow down when using Qukeys to get modifiers, however.
     // Defaults to 50 (milliseconds).
-    Qukeys.setMinimumHoldTime(200);
+    Qukeys.setMinimumHoldTime(150);
     // Sets the minimum amount of time (in milliseconds) that must pass between the press event of a prior (non-modifier) key 
     // and the press of a qukey required to make that qukey eligible to take on it’s alternate state. 
     // This is another measure that can be taken to prevent unintended modifiers while typing fast.
     // Defaults to 75 (milliseconds).
-    Qukeys.setMinimumPriorInterval(120);
+    Qukeys.setMinimumPriorInterval(100);
     Qukeys.setMaxIntervalForTapRepeat(0);
 
     // First, call Kaleidoscope's internal setup function
