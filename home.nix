@@ -8,17 +8,22 @@
     # Then we add the packages we want in the array using pkgs.<name>
     packages = with pkgs; [
       git
-      zsh
-      gcc
       gh
       gh-dash
+      delta
+      zsh
+      gcc
       wget
       unzip
       nodejs_20
       neovim
       starship
       fishPlugins.sdkman-for-fish
-      kitty
+      fishPlugins.fzf-fish
+      fishPlugins.colored-man-pages
+      fishPlugins.z
+      fishPlugins.plugin-git
+      #kitty
       ripgrep
       i3
       ranger

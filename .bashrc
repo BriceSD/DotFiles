@@ -2,21 +2,30 @@
 # ~/.bashrc
 #
 
-# export LANG="en_US.UTF-8"
-# export LC_CTYPE="en_US.UTF-8"
-# export LC_NUMERIC="en_US.UTF-8"
-# export LC_TIME="en_US.UTF-8"
-# export LC_COLLATE="en_US.UTF-8"
-# export LC_MONETARY="en_US.UTF-8"
-# export LC_MESSAGES="en_US.UTF-8"
-# export LC_PAPER="en_US.UTF-8"
-# export LC_NAME="en_US.UTF-8"
-# export LC_ADDRESS="en_US.UTF-8"
-# export LC_TELEPHONE="en_US.UTF-8"
-# export LC_MEASUREMENT="en_US.UTF-8"
-# export LC_IDENTIFICATION="en_US.UTF-8"
-# export LC_ALL="en_US.UTF-8"
+export LANG="en_US.UTF-8"
+export LC_CTYPE="en_US.UTF-8"
+export LC_NUMERIC="en_US.UTF-8"
+export LC_TIME="en_US.UTF-8"
+export LC_COLLATE="en_US.UTF-8"
+export LC_MONETARY="en_US.UTF-8"
+export LC_MESSAGES="en_US.UTF-8"
+export LC_PAPER="en_US.UTF-8"
+export LC_NAME="en_US.UTF-8"
+export LC_ADDRESS="en_US.UTF-8"
+export LC_TELEPHONE="en_US.UTF-8"
+export LC_MEASUREMENT="en_US.UTF-8"
+export LC_IDENTIFICATION="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
 
+export LOCALE_ARCHIVE=/usr/lib/locale/locale-archive
+
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+source /usr/share/nvm/init-nvm.sh
+
+if [ -e /home/brice/.nix-profile/etc/profile.d/nix.sh ]; then . /home/brice/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+[ -f "/home/brice/.ghcup/env" ] && source "/home/brice/.ghcup/env" # ghcup-env
 
 if [[ $(ps --no-header --pid=$PPID --format=comm) != "fish" && -z ${BASH_EXECUTION_STRING} ]]
 then
@@ -33,4 +42,4 @@ PS1='[\u@\h \W]\$ '
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 # export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+#[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"

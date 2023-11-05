@@ -1,5 +1,5 @@
-./config/lazygit/.config/lazygit/state.yml
-./config/ranger/.config/ranger/plugins/__pycache__
-./config/ranger/.config/ranger/__pycache__
-./config/ranger/.config/ranger/plugins/__pycache__
+./config/lazygit/state.yml
+./config/ranger/__pycache__
+./config/ranger/plugins/__pycache__
 ./config/nvim/lazy-lock.json
+./config/fish/fish_variables

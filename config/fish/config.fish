@@ -8,16 +8,17 @@ abbr --add v nvim
 abbr --add r ranger
 abbr --add t tmux
 
-set -Ux EDITOR nvim
 set -x XDG_CONFIG_HOME $HOME/.config
 
-set -x GIT_EDITOR $VIM
-set -x DOTFILES $HOME/dotfiles
+set -x SDKMAN_DIR $HOME/.sdkman
+
+set -Ux DOTFILES $HOME/dotfiles
 set -x KALEIDOSCOPE_DIR $HOME/projects/Kaleidoscope
 
-set -x EDITOR $VIM
-set -x VISUAL_EDITOR $VIM
-set -x PAGER nvimpager
+set -Ux EDITOR $VIM
+set -Ux GIT_EDITOR $VIM
+set -Ux VISUAL_EDITOR $VIM
+set -Ux PAGER nvimpager
 
 set -g __sdkman_custom_dir $HOME/.sdkman
 
