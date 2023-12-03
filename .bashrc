@@ -19,13 +19,17 @@ export LC_ALL="en_US.UTF-8"
 
 export LOCALE_ARCHIVE=/usr/lib/locale/locale-archive
 
+#FQBN=keyboardio:gd32:keyboardio_model_100 make compile
+
+export KALEIDOSCOPE_DIR=$HOME/projects/Kaleidoscope
+
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 source /usr/share/nvm/init-nvm.sh
 
-if [ -e /home/brice/.nix-profile/etc/profile.d/nix.sh ]; then . /home/brice/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
-[ -f "/home/brice/.ghcup/env" ] && source "/home/brice/.ghcup/env" # ghcup-env
+[ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
 
 if [[ $(ps --no-header --pid=$PPID --format=comm) != "fish" && -z ${BASH_EXECUTION_STRING} ]]
 then
