@@ -5,8 +5,8 @@
     stateVersion = "23.11";
     username = "brice";
     homeDirectory = "/home/brice";
-    # Then we add the packages we want in the array using pkgs.<name>
     packages = with pkgs; [
+    # Shared
       git
       gh
       gh-dash
@@ -16,6 +16,7 @@
       wget
       unzip
       nodejs_20
+      fzf
       neovim
       starship
       fishPlugins.sdkman-for-fish
@@ -23,17 +24,25 @@
       fishPlugins.colored-man-pages
       fishPlugins.z
       fishPlugins.plugin-git
-      #kitty
       ripgrep
-      i3
       ranger
       lazygit
       lazydocker
       tmux
+      gitmux
       feh
       zathura
       tridactyl-native
+      #kitty # kitty can be tricky, better to install manually
+
+      # Linux
       conky
+      i3
+
+      # Mac x86_64
+      # yabai
+      # skhd
+      # iterm2
     ];
     # Tell it to map everything in the `config` directory in this
     # repository to the `.config` in my home directory

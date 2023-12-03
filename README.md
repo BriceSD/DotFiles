@@ -1,7 +1,11 @@
 # Dotfiles
 ## Using Nix
-I'm using `nix` to manage my dotfiles now, so the command to run the first time
-around is:
+I'm using `nix` to manage my dotfiles, to install it: 
+```sh
+curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
+```
+
+The command to run the first time around is:
 
 ```sh
 nix run github:nix-community/home-manager -- switch --flake .
@@ -15,47 +19,16 @@ home-manager switch --flake .
 
 I followed [this tutorial](https://dev.to/synecdokey/nix-on-macos-2oj3).
 
-
-# Outdated
-## Required for installation
-
-* Shell
-* Stow : sudo pacman -U https://archive.archlinux.org/packages/s/stow/stow-2.2.2-5-any.pkg.tar.xz
-* Lua Hererocks for nvim plugin luasnip ?
-* Ranger
-* LazyGit
-
-## Config for
-
-* Zsh
-* Oh-my-zsh
-* Nvim
-* Tmux
-* Git
-* i3
-* Tridactyl (firefox extention)
-* Feh
-* Zathura
+## Add your Mac or Linux specific packages
+### All 
 * Kitty
- 
-## Post install configuration
-### Nvim 
-* :MasonInstall
-* :Lazy
+* Lua Hererocks for nvim plugin luasnip ?
+* Tridactyl (See :help ????)
 
-### Terminal
-* starship
-* fish
-* fisher
+### Linux
+* i3
 
-### Git
-* git
-* lazygit
-* gh
-* gh dash : gh extension install dlvhdr/gh-dash
 
-### Tmux
-* gitmux (install manually ?)
-
-### Tridactyl
-* See :help ????
+### Mac
+* Yabai
+* skhd
