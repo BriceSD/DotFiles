@@ -188,6 +188,13 @@ local plugins = {
         },
     },
 
+    -- Add function signature floating while typing
+    {
+        "ray-x/lsp_signature.nvim",
+        event = "VeryLazy",
+        opts = {},
+        config = function(_, opts) require 'lsp_signature'.setup(opts) end
+    },
 
     -- Shows lsp status
     'nvim-lua/lsp-status.nvim',
