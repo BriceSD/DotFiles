@@ -46,7 +46,6 @@
     file.".zshrc" = { source = ./.zshrc; };
     file.".zsh_profile" = { source = ./.zsh_profile; };
     file.".xinitrc" = { source = ./.xinitrc ; };
-    file.".conkyrc" = { source = ./.conkyrc ; };
   };
   # This is to ensure programs are using ~/.config rather than
   # /Users/<username/Library/whatever
