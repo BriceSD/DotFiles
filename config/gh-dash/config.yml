@@ -48,20 +48,20 @@ defaults:
   refetchIntervalMinutes: 30
 keybindings:
   issues: []
-  prs:
+  prs: # nvim -c ":DiffviewOpen master...{{.HeadRefName}}"
     - key: c
       command: >
         tmux new-window -c {{.RepoPath}} '
+          git fetch && 
           gh pr checkout {{.PrNumber}} &&
-          nvim -c ":DiffviewOpen master...{{.HeadRefName}}"
+          nvim -c "DiffviewOpen origin/master... --imply-local"
         '
     - key: v
       command: >
         cd {{.RepoPath}} &&
         code . &&
         gh pr checkout {{.PrNumber}}
-  repoPaths: # configure where to locate repos when checking out PRs
-    /*: ~/projects
-    dlvhdr/gh-dash: ~/code/gh-dash # will not match wildcard and map to specified path
+repoPaths: # configure where to locate repos when checking out PRs
+  tripica/*: ~/work/
 pager:
   diff: delta

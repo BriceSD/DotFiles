@@ -1,6 +1,6 @@
 [user]
 	name = Brice SAUNIER DEBES
-	email = brice.saunier@gmail.com
+	email = brice.saunier@tripica.com
 [alias]
 	save = !git add -A && git commit -m \"SAVEPOINT\"
 	wip = !git add -u && git commit -m \"WIP\"
@@ -25,3 +25,10 @@
     colorMoved = default
 [pull]
 	rebase = true
+
+[url "ssh://git@github.com/"]
+  insteadOf = https://github.com/
+[url "ssh://git@gitlab.com/"]
+  insteadOf = https://gitlab.com/
+[url "ssh://git@bitbucket.org/"]
+  insteadOf = https://bitbucket.org/

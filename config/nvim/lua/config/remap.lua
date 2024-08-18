@@ -1,6 +1,5 @@
 vim.g.mapleader = " "
 
-vim.keymap.set("n", "<leader>.", "<cmd>w<CR>")
 vim.keymap.set("n", "<leader>pb", vim.cmd.Ex)
 
 vim.keymap.set("v", "A", ":m '<-2<CR>gv=gv")
@@ -12,6 +11,9 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
+-- Does this work ?
+vim.keymap.set("n", "[&", "[&zz")
+vim.keymap.set("n", "]&", "]&zz")
 --vim.keymap.set("n", "<leader>vwm", function()
 --    require("vim-with-me").StartVimWithMe()
 --end)
@@ -26,7 +28,7 @@ vim.keymap.set("x", "<leader>p", [["_dP]])
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
-vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
+vim.keymap.set({ "n", "v" }, "<leader>D", [["_d]])
 
 -- Go to next jump list item
 vim.keymap.set("n", "<M-o>", "<C-i>")
@@ -34,22 +36,16 @@ vim.keymap.set("n", "<M-o>", "<C-i>")
 vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 
-vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
-vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
-vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
-vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
+-- vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
+-- vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
+-- vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
+-- vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
---vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
 
-
-vim.keymap.set("n", "<leader>q", "<cmd>:wa<CR><cmd>!cargo fmt<CR><CR>")
-
--- create splits using alt
-vim.keymap.set("n", "<M-k>", "<C-w>s")
-vim.keymap.set("n", "<M-f>", "<C-w>v")
+--vim.keymap.set("n", "<leader>q", "<cmd>:wa<CR><cmd>!cargo fmt<CR><CR>")
 
 -- navigate splits using alt
 vim.keymap.set("n", "<M-y>", "<C-w>h")
@@ -67,3 +63,8 @@ vim.keymap.set("n", "<M-A>", "<C-w>-")
 -- https://github.com/kovidgoyal/kitty/issues/1629#issuecomment-494299618
 --vim.keymap.set("n", "<C-g>", "<C-^>")
 --vim.keymap.set("n", "<M-g>", "<C-g>")
+
+-- Zoom in
+vim.keymap.set("n", "<c-w><c-o>", ":tabnew %<CR>")
+-- Zoom out
+vim.keymap.set("n", "<c-w><c-u>", ":tabclose<CR>")

@@ -1,4 +1,4 @@
-vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
+vim.keymap.set("n", "<leader>go", vim.cmd.Git)
 
 local Brice_Fugitive = vim.api.nvim_create_augroup("Brice_Fugitive", {})
 

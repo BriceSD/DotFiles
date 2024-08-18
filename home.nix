@@ -4,7 +4,7 @@
   home = {
     stateVersion = "23.11";
     username = "brice";
-    homeDirectory = "/home/brice";
+    homeDirectory = "/Users/brice";
     packages = with pkgs; [
     # Shared
       git
@@ -12,12 +12,12 @@
       gh-dash
       delta
       zsh
-      gcc
+      #gcc
       wget
       unzip
-      nodejs_20
+      #nodejs_20
       fzf
-      neovim
+      # neovim
       starship
       fishPlugins.sdkman-for-fish
       fishPlugins.fzf-fish
@@ -26,22 +26,22 @@
       fishPlugins.plugin-git
       ripgrep
       ranger
-      lazygit
+      # lazygit
       lazydocker
       tmux
       gitmux
-      feh
-      zathura
-      tridactyl-native
+      #feh
+      #zathura
+      #tridactyl-native
       #kitty # kitty can be tricky, better to install manually
 
       # Linux
-      conky
-      i3
+      #conky
+      #i3
 
       # Mac x86_64
-      # yabai
-      # skhd
+      yabai
+      skhd
       # iterm2
     ];
     # Tell it to map everything in the `config` directory in this

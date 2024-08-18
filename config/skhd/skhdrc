@@ -22,10 +22,10 @@ cmd + shift - d : yabai -m window --space 2
 cmd + shift - t : yabai -m window --space 3
 cmd + shift - r : yabai -m window --space 4
 cmd + shift - n : yabai -m window --space 5
-cmd + shift + ctrl - s : yabai -m window --space 6
-cmd + shift + ctrl - d : yabai -m window --space 7
-cmd + shift + ctrl - t : yabai -m window --space 8
-cmd + shift + ctrl - r : yabai -m window --space 9
+cmd + shift + ctrl - s : yabai -m window --space 9
+cmd + shift + ctrl - d : yabai -m window --space 6
+cmd + shift + ctrl - t : yabai -m window --space 7
+cmd + shift + ctrl - r : yabai -m window --space 8
 cmd + shift + ctrl - n : yabai -m window --space 10
 # # rotate tree
 # alt - r : yabai -m space --rotate 90
@@ -77,4 +77,4 @@ cmd - p : yabai -m window --toggle zoom-fullscreen
 # shift + alt - p : yabai -m window --display previous; yabai -m display --focus previous
 
 # open terminal
-cmd - v : open -n /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d
+#cmd - v : open -n /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d

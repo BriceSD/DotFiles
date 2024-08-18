@@ -1,38 +1,30 @@
-vim.keymap.set('n', '<F5>', function() require('dap').step_into() end)
-vim.keymap.set('n', '<F4>', function() require('dap').step_over() end)
-vim.keymap.set('n', '<F3>', function() require('dap').continue() end)
-vim.keymap.set('n', '<F2>', function() require('dap').step_out() end)
-vim.keymap.set('n', '<F10>', function() require('dap').terminate() end)
-vim.keymap.set('n', '<Leader>b', function() require('dap').toggle_breakpoint() end)
+local dap, dapui = require("dap"), require("dapui")
+local widgets = require('dap.ui.widgets')
+vim.keymap.set('n', '<F7>', function() require('dap').step_into() end)
+vim.keymap.set('n', '<F8>', function() require('dap').step_over() end)
+vim.keymap.set('n', '<F10>', function() require('dap').continue() end)
+vim.keymap.set('n', '<F9>', function() require('dap').step_out() end)
+vim.keymap.set('n', '<F12>', function() require('dap').terminate() end)
+vim.keymap.set('n', '<Leader>bp', function() require('dap').toggle_breakpoint() end)
 vim.keymap.set('n', '<Leader>B',
     function() require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: ')) end)
-vim.keymap.set('n', '<Leader>lp',
+vim.keymap.set('n', '<Leader>bl',
     function() require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end)
-vim.keymap.set('n', '<Leader>dbr', function() require('dap').repl.open() end)
-vim.keymap.set('n', '<Leader>dbl', function() require('dap').run_last() end)
+vim.keymap.set('n', '<Leader>dbr', function() require('dap').repl.open() end, { desc = "[D]ebugger open [r]epl" })
+vim.keymap.set('n', '<Leader>dl', function() require('dap').run_last() end, { desc = "[D]ebug [r]un last" })
 
-
-vim.keymap.set({ 'n', 'v' }, '<Leader>dbh', function()
-    require('dap.ui.widgets').hover()
-end)
-vim.keymap.set({ 'n', 'v' }, '<Leader>dbp', function()
-    require('dap.ui.widgets').preview()
-end)
-vim.keymap.set('n', '<Leader>dbf', function()
-    local widgets = require('dap.ui.widgets')
-    widgets.centered_float(widgets.frames)
-end)
-vim.keymap.set('n', '<Leader>dbs', function()
-    local widgets = require('dap.ui.widgets')
-    widgets.centered_float(widgets.scopes)
-end)
+vim.keymap.set({ 'n', 'v' }, '<Leader>dbe', function() require('dapui').eval() end, { desc = "[D]ebugger open [e]val" })
+vim.keymap.set({ 'n', 'v' }, '<Leader>dbh', function() widgets.hover() end, { desc = "[D]ebugger [h]over" })
+vim.keymap.set({ 'n', 'v' }, '<Leader>dbp', function() widgets.preview() end, { desc = "[D]ebugger open [p]review" })
+vim.keymap.set('n', '<Leader>dbf', function() widgets.centered_float(widgets.frames) end, { desc = "[D]ebugger open [f]rames" })
+vim.keymap.set('n', '<Leader>dbs', function() widgets.centered_float(widgets.scopes) end, { desc = "[D]ebugger open [s]copes" })
+vim.keymap.set('n', '<Leader>dbt', function() dapui.toggle()  end, { desc = "[D]ebugger ui [t]oggle" })
 
 require("neodev").setup({
     library = { plugins = { "nvim-dap-ui" }, types = true },
 
 })
 
-local dap, dapui = require("dap"), require("dapui")
 dap.adapters.codelldb = {
     type = 'server',
     port = "${port}",
@@ -131,31 +123,32 @@ dapui.setup({
     },
     layouts = { {
         elements = { {
-            id = "scopes",
-            size = 0.25
+            id = "stacks",
+            size = 0.20
         }, {
             id = "breakpoints",
-            size = 0.25
+            size = 0.15
         }, {
-            id = "stacks",
-            size = 0.25
+            id = "repl",
+            size = 0.15
+        }, {
+            id = "scopes",
+            size = 0.35
         }, {
             id = "watches",
-            size = 0.25
+            size = 0.15
         } },
         position = "left",
         size = 80
     }, {
         elements = { {
             id = "console",
-            size = 0.3
-        }, {
-            id = "repl",
-            size = 0.7
-        } },
+            size = 1
+        }, },
         position = "bottom",
         size = 13
-    } },
+    },
+    },
     mappings = {
         edit = "e",
         expand = { "<CR>", "<2-LeftMouse>" },

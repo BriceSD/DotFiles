@@ -1,6 +1,9 @@
 require('diffview').setup({
     enhanced_diff_hl = true,
 })
+vim.keymap.set("n", "<leader>da", "<cmd>DiffviewOpen --selected-file<cr>",
+    { silent = true, noremap = true, desc = '[D]iff [a]ll project' }
+)
 
 -- require("diffview").setup({
 --   diff_binaries = false,    -- Show diffs for binaries

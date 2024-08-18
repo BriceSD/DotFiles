@@ -1,5 +1,5 @@
 local conform = require("conform")
-require("conform").setup({
+conform.setup({
     formatters_by_ft = {
         lua = { "stylua" },
         -- Conform will run multiple formatters sequentially

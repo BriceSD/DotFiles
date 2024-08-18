@@ -17,6 +17,11 @@ export LC_MEASUREMENT="en_US.UTF-8"
 export LC_IDENTIFICATION="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
+PATH=/opt/homebrew/bin:$PATH
+
+if [ -z "$INTELLIJ_ENVIRONMENT_READER" ]; then
+	exec fish $LOGIN_OPTION
+fi
 
 if [[ $(ps --no-header --pid=$PPID --format=comm) != "fish" && -z ${BASH_EXECUTION_STRING} ]]
 then

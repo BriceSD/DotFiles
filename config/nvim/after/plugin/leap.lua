@@ -18,7 +18,8 @@ require('leap').add_default_mappings()
 --         multi_revert = '<backspace>',
 --     }
 -- }
-require('leap').opts.safe_labels = { 'n', 'h', 'g', 'r', 'e', 't', 's', 'm', 'u', 'l', '/', 'y', '(', ',', 'f', '[', ']' }
+require('leap').opts.labels = { 's','h','t','e','r','g','n','m', 'u', 'l', 'y', 'f', 'o'  }
+require('leap').opts.safe_labels = { 's','h','t','e','r','g','n','m', 'u', 'l', 'y', 'f', 'o'  }
 require('leap').opts.case_sensitive = false
 require('leap').opts.special_keys.multi_accept = { '<enter>' }
 require('leap').opts.special_keys.next_target = { ';' }

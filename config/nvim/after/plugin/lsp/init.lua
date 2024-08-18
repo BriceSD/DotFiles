@@ -105,7 +105,7 @@ lsp_zero.on_attach(function(client, bufnr)
 
     vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
     vim.keymap.set("n", "gD", function() vim.lsp.buf.declaration() end, opts) -- Goto Declaration
-    vim.keymap.set("n", "k", function() vim.lsp.buf.hover() end, opts)
+    vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
     --vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
     -- vim.keymap.set("n", "<leader>vrl", function() vim.lsp.buf.references() end,
     --     { desc = '[V]iew [R]eferences [L]ist' })
@@ -115,29 +115,29 @@ lsp_zero.on_attach(function(client, bufnr)
     vim.keymap.set("n", "<leader>.", vim.lsp.buf.format)
 
     --vim.keymap.set("n", 'gr', 'lsp_references')                                         -- Goto References
-    vim.keymap.set("n", "VR", function() vim.lsp.buf.references() end,
-        { desc = '[V]iew [R]eferences' })
-    vim.keymap.set("n", 'gI', '<cmd>lua vim.lsp.implementations<CR>') -- Goto Implementations
+    -- vim.keymap.set("n", "VR", function() vim.lsp.buf.references() end,
+    --     { desc = '[V]iew [R]eferences' })
+    --vim.keymap.set("n", '<leader>gi', '<cmd>lua vim.lsp.implementations<CR>') -- Goto Implementations
     vim.keymap.set({ 'v', 'n' }, '<Leader>a', vim.lsp.buf.code_action)
 
 
-    vim.keymap.set("n", '<Leader>wl', function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, opts)
-    vim.keymap.set("n", '<Leader>wa', function() vim.lsp.buf.add_workspace_folder() end, opts)
-    vim.keymap.set("n", '<Leader>wr', function() vim.lsp.buf.remove_workspace_folder() end, opts)
+    -- vim.keymap.set("n", '<Leader>wl', function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, opts)
+    -- vim.keymap.set("n", '<Leader>wa', function() vim.lsp.buf.add_workspace_folder() end, opts)
+    -- vim.keymap.set("n", '<Leader>wr', function() vim.lsp.buf.remove_workspace_folder() end, opts)
 
     -- Diagnostics:
-    vim.keymap.set("n", 'dl', function() vim.diagnostic.goto_prev() end, opts)          -- Diagnostics Previous
-    vim.keymap.set("n", 'dn', function() vim.diagnostic.goto_next() end, opts)          -- Diagnostics Next
+    vim.keymap.set("n", 'dl', function() vim.diagnostic.goto_prev() end, opts) -- Diagnostics Previous
+    vim.keymap.set("n", 'dn', function() vim.diagnostic.goto_next() end, opts) -- Diagnostics Next
     --vim.keymap.set("n", '<Leader>dl', 'diagnostics')
-    vim.keymap.set("n", '<Leader>ld', '<cmd>Telescope diagnostics<CR>')                 -- List Diagnotics
-    vim.keymap.set("n", '<Leader>ll', function() vim.diagnostic.setloclist() end, opts) -- List Location List
-    vim.keymap.set("n", '<Leader>lf', function() vim.diagnostic.setqflist() end, opts)  -- List quickFix
+    -- vim.keymap.set("n", '<Leader>ld', '<cmd>Telescope diagnostics<CR>')                 -- List Diagnotics
+    -- vim.keymap.set("n", '<Leader>ll', function() vim.diagnostic.setloclist() end, opts) -- List Location List
+    -- vim.keymap.set("n", '<Leader>lf', function() vim.diagnostic.setqflist() end, opts)  -- List quickFix
     -- Show diagnostic popup
-    vim.keymap.set("n", "<Leader>df", function()
-            vim.diagnostic.open_float(nil, { focusable = false })
-        end,
-        opts
-    )
+    -- vim.keymap.set("n", "<Leader>df", function()
+    --         vim.diagnostic.open_float(nil, { focusable = false })
+    --     end,
+    --     opts
+    -- )
 end)
 
 
@@ -292,36 +292,6 @@ whichkey.register {
         K = { '[LSP] Display Hover Info' },
         d = { '[LSP] Goto definition' },
     },
-    ['<Leader>'] = {
-        c = {
-            name = 'LSP',
-            a = { '[LSP] Code Actions' },
-            ca = { '[LSP] Code Actions All' },
-            r = { '[LSP] Rename Symbol' },
-        },
-        w = {
-            name = 'LSP',
-            a = { 'Add Workspace Folder' },
-            l = { 'List Workspace Folders' },
-            r = { 'Remove Workspace Folders' },
-            d = { 'List Document Symbols in Current Document' },
-            w = { 'List Document Symbols in Current Workspace' },
-        },
-        name = 'Diagnostics',
-        d = { '[Diagnostics] Display Line Diagnostics' },
-        l = {
-            name = 'Diagnostics',
-            --d = { '[Diagnostics] List Diagnostics' },
-            f = { '[Diagnostics] Quickfix List' },
-            --l = { '[Diagnostics] Location List' },
-        },
-        r = {
-            name = 'Refactor',
-            --d = { '[Diagnostics] List Diagnostics' },
-            f = { '[Refactor] File Name' },
-            --l = { '[Diagnostics] Location List' },
-        },
-    },
     d = {
         name = 'Diagnostics',
         n = { '[Diagnostics] Goto Next' },
@@ -329,9 +299,7 @@ whichkey.register {
     },
     v = {
         name = 'View',
-        r = {
-            r = { 'References' },
-        }
+        r = { 'References' },
     }
 }
 lsp_zero.setup()

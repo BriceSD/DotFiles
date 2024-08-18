@@ -11,19 +11,22 @@ local plugins = {
         },
     },
 
+    -- Git history
+    { 'rhysd/git-messenger.vim' },
+
     -- theme
     'rebelot/kanagawa.nvim',
     'nvim-lualine/lualine.nvim', -- Fancier statusline
 
     -- better edit experience
-    'numToStr/Comment.nvim',  -- 'gc' to comment visual regions/lines
-    'm4xshen/autoclose.nvim', -- manage auto pairs & closes brackets
+    'numToStr/Comment.nvim', -- 'gc' to comment visual regions/lines
+    --'m4xshen/autoclose.nvim', -- manage auto pairs & closes brackets
 
     -- make one window fullscreen
-    'troydm/zoomwintab.vim',
+    -- 'troydm/zoomwintab.vim',
 
     -- Markdown preview
-    { "ellisonleao/glow.nvim",       config = true, cmd = "Glow" },
+    { "ellisonleao/glow.nvim",  config = true, cmd = "Glow" },
     {
         "iamcco/markdown-preview.nvim",
         ft = "markdown",
@@ -70,6 +73,16 @@ local plugins = {
             'tpope/vim-repeat',
         },
     },
+    { 'tpope/vim-surround' },
+    { 'tpope/vim-repeat' },
+    -- <C-x> <C-a> to modify dates
+    { 'tpope/vim-speeddating' },
+    { 'tpope/vim-unimpaired' },
+
+    -- RIP vimgrep
+    { 'jremmen/vim-ripgrep' },
+
+    { 'ThePrimeagen/vim-be-good' },
 
     -- Git
     {
@@ -82,6 +95,7 @@ local plugins = {
             'nvim-lua/plenary.nvim',
         }
     },
+
     -- Telescope
     {
         "nvim-telescope/telescope.nvim",
@@ -132,6 +146,7 @@ local plugins = {
         "nvim-neotest/neotest",
         dependencies = {
             "nvim-lua/plenary.nvim",
+            "rcasia/neotest-java",
             "nvim-treesitter/nvim-treesitter",
             "antoinemadec/FixCursorHold.nvim",
             "rouge8/neotest-rust",
@@ -175,11 +190,11 @@ local plugins = {
                     pcall(vim.cmd, 'MasonUpdate')
                 end,
             },
-            { 'williamboman/mason-lspconfig.nvim' }, -- Optional
+            -- { 'williamboman/mason-lspconfig.nvim' }, -- Optional
 
             -- Useful status updates for LSP
             -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-            { 'j-hui/fidget.nvim',                opts = {} },
+            { 'j-hui/fidget.nvim',    opts = {} },
 
             -- Autocompletion
             { 'hrsh7th/nvim-cmp' },     -- Required
@@ -201,8 +216,10 @@ local plugins = {
 
     -- Navigate through lsp diagnostics
     {
-        "folke/trouble.nvim",
-        dependencies = "nvim-tree/nvim-web-devicons",
+        "folke/lsp-trouble.nvim",
+        dependencies = {
+            { "nvim-tree/nvim-web-devicons" },
+        },
     },
 
     -- Inlay hints
@@ -230,11 +247,17 @@ local plugins = {
         end,
     },
 
+    -- Java related plugins
+    {
+        'mfussenegger/nvim-jdtls',
+        dependencies = {
+            { 'microsoft/vscode-java-test' },
+            { 'microsoft/java-debug' },
+        },
+    },
+
     -- Latex related plugins
     'lervag/vimtex',
-
-    -- Java related plugins
-    'mfussenegger/nvim-jdtls',
 
     -- Go related plugins
     {
@@ -259,6 +282,7 @@ local plugins = {
         dependencies = {
             { 'nvim-treesitter/nvim-treesitter' }, -- needed
             { 'rcarriga/nvim-dap-ui' },            -- better ui
+            { 'nvim-neotest/nvim-nio' },           --
             { 'theHamsta/nvim-dap-virtual-text' }, -- annotates file with debug info
             { 'nvim-telescope/telescope-dap.nvim' },
             { 'nvim-telescope/telescope.nvim' },   -- needed for telescope-dap

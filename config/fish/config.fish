@@ -7,6 +7,11 @@ set VIM "nvim"
 abbr --add v nvim
 abbr --add r ranger
 abbr --add t tmux
+abbr --add ls eza
+abbr --add tree eza --tree
+abbr --add cd z
+abbr --add zz z -
+abbr --add ll eza -alh
 
 set -x XDG_CONFIG_HOME $HOME/.config
 
@@ -18,7 +23,8 @@ set -x KALEIDOSCOPE_DIR $HOME/projects/Kaleidoscope
 set -Ux EDITOR $VIM
 set -Ux GIT_EDITOR $VIM
 set -Ux VISUAL_EDITOR $VIM
-set -Ux PAGER nvimpager
+# set -Ux PAGER nvimpager
+set -Ux PAGER 'nvim +Man!'
 
 set -g __sdkman_custom_dir $HOME/.sdkman
 

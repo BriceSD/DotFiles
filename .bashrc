@@ -23,9 +23,21 @@ export LOCALE_ARCHIVE=/usr/lib/locale/locale-archive
 
 export KALEIDOSCOPE_DIR=$HOME/projects/Kaleidoscope
 
+PATH=/opt/homebrew/bin:$PATH
+
+if [ -z "$INTELLIJ_ENVIRONMENT_READER" ]; then
+	exec fish $LOGIN_OPTION
+fi
+
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-source /usr/share/nvm/init-nvm.sh
+
+# [ -f "/usr/share/nvm/init-nvm.sh" ] && source "/usr/share/nvm/init-nvm.sh" #
+
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+exec nvm use latest
 
 if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
@@ -37,6 +49,7 @@ then
 	exec fish $LOGIN_OPTION
 fi
 
+exec fish $LOGIN_OPTION
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 

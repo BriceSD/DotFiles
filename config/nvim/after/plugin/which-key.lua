@@ -9,6 +9,8 @@ local wk = require("which-key")
 -- and hide <leader>1
 
 wk.register({
+
+}, {})
     --   f = {
     --       name = "file",                                                                            -- optional group name
     --       f = { "<cmd>Telescope find_files<cr>", "Find File" },                                     -- create a binding with label
@@ -19,5 +21,3 @@ wk.register({
     --       b = { function() print("bar") end, "Foobar" }                                             -- you can also pass functions!
     --   },
     --
-
-}, { prefix = "<leader>" })
