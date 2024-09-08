@@ -1,0 +1,22 @@
+lastupdatecheck: 0
+recentrepos:
+    - /home/brice/dotfiles
+    - /home/brice/projects/nix
+    - /home/brice/projects/kucoin
+    - /home/brice/projects/zero2prod
+    - /home/brice/projects/zero2prod/
+    - /home/brice/projects/CV
+    - /home/brice/projects/Kaleidoscope
+    - /home/brice/projects/cli-rust/catr
+startuppopupversion: 5
+lastversion: 0.44.0
+customcommandshistory:
+    - git config pull.rebase true
+hidecommandlog: false
+ignorewhitespaceindiffview: false
+diffcontextsize: 3
+renamesimilaritythreshold: 50
+localbranchsortorder: recency
+remotebranchsortorder: alphabetical
+gitlogorder: topo-order
+gitlogshowgraph: always
